@@ -1,0 +1,8 @@
+{
+  "name": "bodyscan",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": { "ghcr.io/devcontainers/features/node:1": {} },
+  "postCreateCommand": "sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && npm i -g serve",
+  "forwardPorts": [3000],
+  "customizations": { "vscode": { "extensions": ["ritwickdey.LiveServer"] } }
+}
