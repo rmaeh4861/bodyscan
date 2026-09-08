@@ -66,6 +66,8 @@
   .bm-tab.on{color:#fff;border-bottom-color:#fff;}
   .bm-stage{position:relative;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;padding:6%;}
   .bm-fig{height:100%;width:auto;}
+  .bm-img{height:100%;width:auto;object-fit:contain;filter:grayscale(1) contrast(1.06) brightness(.95);}
+  .bm-imgwrap{height:100%;display:flex;align-items:center;justify-content:center;}
   .bm-empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12.5px;color:var(--tx4);}
 
   .lbl{position:absolute;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:#fff;color:#000;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 5px rgba(255,255,255,.13);z-index:2;}
@@ -515,12 +517,21 @@ function bodyBase(){
   <path d="M62,398 L88,398 L90,410 Q76,414 60,410 Z" fill="${F}" stroke="${S}" stroke-width="1.2"/>
   <path d="M112,398 L138,398 L140,410 Q124,414 110,410 Z" fill="${F}" stroke="${S}" stroke-width="1.2"/>`;
 }
+/* 인체도 이미지 경로 — images/front.png, images/back.png 를 넣으면 자동 사용.
+   파일이 없으면 아래 SVG 실루엣으로 자동 폴백. 흑백 톤은 .bm-img 필터로 처리. */
+const BODY_IMG={front:'images/front.png', back:'images/back.png'};
+function figureImg(view, svgFallback){
+  const src=BODY_IMG[view];
+  return `<div class="bm-imgwrap">
+    <img class="bm-img" src="${src}" alt=""
+      onerror="this.parentElement.outerHTML=this.getAttribute('data-fb');"
+      data-fb='${svgFallback.replace(/'/g,"&#39;")}'>
+  </div>`;
+}
 function figureFront(){
-  return `<svg class="bm-fig" viewBox="0 0 200 420">${bodyBase()}
-  <!-- hands, palms forward -->
+  const svg=`<svg class="bm-fig" viewBox="0 0 200 420">${bodyBase()}
   <path d="M32,236 L48,238 L50,256 Q42,262 30,256 Z" fill="${F}" stroke="${S}" stroke-width="1.2"/>
   <path d="M168,236 L152,238 L150,256 Q158,262 170,256 Z" fill="${F}" stroke="${S}" stroke-width="1.2"/>
-  <!-- subtle anatomical lines -->
   <path d="M100,68 L100,118" stroke="${S}" stroke-width=".8" opacity=".6"/>
   <path d="M78,84 Q100,96 122,84" stroke="${S}" stroke-width=".8" fill="none" opacity=".6"/>
   <path d="M88,120 Q100,124 112,120" stroke="${S}" stroke-width=".8" fill="none" opacity=".5"/>
@@ -528,23 +539,21 @@ function figureFront(){
   <path d="M80,300 Q78,306 80,312" stroke="${S}" stroke-width=".8" fill="none" opacity=".5"/>
   <path d="M120,300 Q122,306 120,312" stroke="${S}" stroke-width=".8" fill="none" opacity=".5"/>
   </svg>`;
+  return figureImg('front', svg);
 }
 function figureBack(){
-  return `<svg class="bm-fig" viewBox="0 0 200 420">${bodyBase()}
-  <!-- hands (back) -->
+  const svg=`<svg class="bm-fig" viewBox="0 0 200 420">${bodyBase()}
   <path d="M32,236 L48,238 L50,256 Q42,262 30,256 Z" fill="${F}" stroke="${S}" stroke-width="1.2"/>
   <path d="M168,236 L152,238 L150,256 Q158,262 170,256 Z" fill="${F}" stroke="${S}" stroke-width="1.2"/>
-  <!-- spine -->
   <path d="M100,64 L100,214" stroke="${S}" stroke-width="1.2" opacity=".8" stroke-dasharray="2 3"/>
-  <!-- scapulae -->
   <path d="M72,84 Q64,104 78,122 Q92,112 88,88 Z" stroke="${S}" stroke-width=".9" fill="none" opacity=".7"/>
   <path d="M128,84 Q136,104 122,122 Q108,112 112,88 Z" stroke="${S}" stroke-width=".9" fill="none" opacity=".7"/>
-  <!-- pelvis / gluteal fold -->
   <path d="M76,240 Q100,236 124,240" stroke="${S}" stroke-width=".9" fill="none" opacity=".6"/>
   <path d="M100,224 L100,250" stroke="${S}" stroke-width=".8" opacity=".6"/>
   <path d="M80,304 Q78,310 80,318" stroke="${S}" stroke-width=".8" fill="none" opacity=".5"/>
   <path d="M120,304 Q122,310 120,318" stroke="${S}" stroke-width=".8" fill="none" opacity=".5"/>
   </svg>`;
+  return figureImg('back', svg);
 }
 </script>
 </body>
