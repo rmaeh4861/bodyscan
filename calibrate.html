@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>마커 좌표 보정 도구</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0b0b0d;color:#fff;font-family:-apple-system,"Apple SD Gothic Neo","Pretendard",sans-serif;padding:20px;}
+.wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:minmax(320px,440px) 1fr;gap:24px;}
+@media(max-width:860px){.wrap{grid-template-columns:1fr;}}
+h1{font-size:19px;font-weight:600;margin-bottom:6px;}
+.desc{font-size:13px;color:#9a9aa2;line-height:1.7;margin-bottom:18px;}
+.tabs{display:flex;gap:8px;margin-bottom:10px;}
+.tab{flex:1;padding:11px;border:1px solid #2a2a30;background:#141418;color:#9a9aa2;border-radius:10px;cursor:pointer;font-size:14px;}
+.tab.on{background:#fff;color:#000;border-color:#fff;font-weight:600;}
+.stage{position:relative;aspect-ratio:3/4;background:#000;border:1px solid #26262a;border-radius:16px;
+  display:flex;align-items:center;justify-content:center;padding:6%;overflow:hidden;user-select:none;}
+.stage img{height:100%;width:auto;object-fit:contain;filter:grayscale(1) contrast(1.15) brightness(1.05);mix-blend-mode:screen;pointer-events:none;}
+.noimg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-size:13px;color:#5a5a62;line-height:1.8;padding:20px;}
+.mk{position:absolute;transform:translate(-50%,-50%);width:28px;height:28px;border-radius:50%;
+  background:#fff;color:#000;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;
+  cursor:grab;box-shadow:0 0 0 4px rgba(255,255,255,.18);z-index:3;touch-action:none;}
+.mk.act{background:#ffd400;box-shadow:0 0 0 6px rgba(255,212,0,.3);}
+.mk:active{cursor:grabbing;}
+.panel{display:flex;flex-direction:column;gap:12px;}
+.list{max-height:52vh;overflow-y:auto;border:1px solid #26262a;border-radius:12px;background:#0f0f11;}
+.row{display:flex;align-items:center;gap:10px;padding:9px 12px;border-bottom:.5px solid #1e1e22;font-size:13px;cursor:pointer;}
+.row:last-child{border-bottom:none;}
+.row:hover{background:#16161a;}
+.row.act{background:#1d1d22;}
+.row .b{width:22px;height:22px;border-radius:50%;background:#fff;color:#000;font-size:11px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.row .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.row .xy{font-size:11px;color:#7a7a82;font-variant-numeric:tabular-nums;}
+.btns{display:flex;gap:8px;flex-wrap:wrap;}
+button.act-btn{flex:1;min-width:120px;padding:12px;border:none;border-radius:10px;background:#fff;color:#000;font-weight:600;font-size:14px;cursor:pointer;}
+button.ghost{background:transparent;border:1px solid #2a2a30;color:#c7c7cd;}
+textarea{width:100%;height:220px;background:#0f0f11;border:1px solid #26262a;border-radius:12px;color:#c7c7cd;
+  padding:12px;font-family:ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.6;resize:vertical;}
+.hint{font-size:12px;color:#7a7a82;line-height:1.7;}
+.hint b{color:#fff;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div>
+    <h1>마커 좌표 보정 도구</h1>
+    <p class="desc">해부학 이미지 위에서 <b style="color:#fff">마커를 드래그</b>해 정확한 위치로 옮기세요.<br>
+    오른쪽 목록에서 항목을 눌러 선택할 수도 있고, 빈 곳을 클릭하면 선택된 마커가 그 자리로 이동합니다.</p>
+
+    <div class="tabs">
+      <button class="tab on" id="tF" onclick="setView('front')">전면</button>
+      <button class="tab" id="tB" onclick="setView('back')">후면</button>
+    </div>
+
+    <div class="stage" id="stage" onclick="stageClick(event)">
+      <img id="bodyImg" src="images/front.png" alt="" onerror="imgFail()">
+      <div class="noimg" id="noimg" style="display:none;">
+        images/front.png · images/back.png 를 찾지 못했어요.<br>
+        이 파일을 index.html과 같은 폴더에 두고<br>코드스페이스에서 열어주세요.
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="list" id="list"></div>
+    <div class="btns">
+      <button class="act-btn" onclick="downloadIndex()">✅ 새 index.html 내려받기</button>
+      <button class="act-btn ghost" onclick="resetAll()">초기화</button>
+    </div>
+    <p class="hint" id="status">
+      <b>터미널 없이 쓰는 법</b><br>
+      1) 이 파일(calibrate.html)을 <b>index.html과 같은 폴더</b>에 두기<br>
+      2) 마커를 드래그로 다 맞추기 (전면·후면 둘 다)<br>
+      3) <b>[새 index.html 내려받기]</b> 클릭 → 좌표가 반영된 파일이 다운로드됨<br>
+      4) 그 파일을 코드스페이스의 기존 index.html에 <b>덮어쓰기</b> (드래그 앤 드롭)
+    </p>
+    <textarea id="out" style="display:none"></textarea>
+  </div>
+
+</div>
+
+<script>
+/* index.html의 PATTERN과 동일한 키·기본 좌표 (35개) */
+const MARKS=[
+ {k:'neck_nerve',   n:'목-팔 신경 자극',            v:'back',  x:50, y:19},
+ {k:'forwardhead',  n:'거북목형 목 앞쪽 쏠림',       v:'back',  x:50, y:13},
+ {k:'straightneck', n:'일자목형 목 커브 감소',       v:'back',  x:50, y:16},
+ {k:'dnf_weak',     n:'목 앞쪽 깊은 근육 힘 저하',    v:'front', x:50, y:16},
+ {k:'impingement',  n:'어깨 힘줄 끼임',             v:'front', x:32, y:22},
+ {k:'roundshoulder',n:'라운드숄더형 어깨 말림',      v:'front', x:34, y:24},
+ {k:'shoulder_rot', n:'어깨 회전 가동성 제한',       v:'back',  x:64, y:26},
+ {k:'back_nerve',   n:'허리-다리 신경 자극',         v:'back',  x:57, y:52},
+ {k:'flexion',      n:'앞으로 숙일 때 부담 허리',     v:'back',  x:50, y:47},
+ {k:'extension',    n:'뒤로 젖힐 때 부담 허리',       v:'back',  x:50, y:45},
+ {k:'sitstiff',     n:'오래 앉아 굳은 허리',          v:'back',  x:50, y:43},
+ {k:'ql',           n:'옆구리 편측 단축',            v:'back',  x:39, y:43},
+ {k:'instab',       n:'허리 안정성 저하',            v:'back',  x:50, y:41},
+ {k:'pelvis_nerve', n:'허리-다리 저림(골반)',        v:'back',  x:56, y:52},
+ {k:'faber_pos',    n:'엉치·꼬리뼈 기능 제한',       v:'front', x:44, y:54},
+ {k:'ir_limit',     n:'고관절 안쪽 회전 제한',        v:'front', x:56, y:54},
+ {k:'iliopsoas_short',n:'골반 앞쪽 근육 단축',        v:'front', x:50, y:50},
+ {k:'adductor_glute', n:'안쪽 허벅지·엉덩이 힘 저하', v:'front', x:50, y:56},
+ {k:'knee_check',   n:'무릎 불안정·부종',            v:'front', x:50, y:70},
+ {k:'pfp',          n:'무릎뼈 주변 압박 부하',        v:'front', x:43, y:70},
+ {k:'pfp2',         n:'하중 동작 시 무릎 부담',       v:'front', x:57, y:70},
+ {k:'medial',       n:'무릎 안쪽 하중 쏠림',          v:'front', x:47, y:71},
+ {k:'lateral',      n:'무릎 바깥 힘줄 마찰',          v:'front', x:38, y:70},
+ {k:'posterior',    n:'오금 긴장',                   v:'back',  x:50, y:74},
+ {k:'catching',     n:'무릎 걸림·소리',              v:'front', x:50, y:72},
+ {k:'cts_strong',   n:'손목 터널 신경 자극',          v:'front', x:79, y:56},
+ {k:'tenniselbow',  n:'팔꿈치 바깥 힘줄 과부하',      v:'front', x:76, y:41},
+ {k:'golferelbow',  n:'팔꿈치 안쪽 힘줄 과부하',      v:'front', x:73, y:42},
+ {k:'dequervain',   n:'엄지 힘줄 자극',              v:'front', x:81, y:58},
+ {k:'overuse',      n:'손목·팔뚝 과사용 피로',        v:'front', x:77, y:48},
+ {k:'fascia',       n:'발바닥 근막 과부하',           v:'front', x:56, y:95},
+ {k:'fascia2',      n:'발바닥 근막 긴장',            v:'front', x:44, y:94},
+ {k:'instability',  n:'발목 불안정',                 v:'front', x:42, y:90},
+ {k:'calf_tight',   n:'종아리 단축·발목 굽힘 제한',   v:'back',  x:44, y:86},
+ {k:'achilles',     n:'아킬레스 힘줄 부하',           v:'back',  x:56, y:92},
+];
+
+const DEF=JSON.parse(JSON.stringify(MARKS));
+let view='front', sel=null, drag=null;
+const stage=document.getElementById('stage');
+
+function setView(v){
+  view=v;
+  document.getElementById('tF').classList.toggle('on',v==='front');
+  document.getElementById('tB').classList.toggle('on',v==='back');
+  document.getElementById('bodyImg').src='images/'+v+'.png';
+  document.getElementById('noimg').style.display='none';
+  document.getElementById('bodyImg').style.display='';
+  render();
+}
+function imgFail(){
+  document.getElementById('bodyImg').style.display='none';
+  document.getElementById('noimg').style.display='flex';
+}
+function render(){
+  [...stage.querySelectorAll('.mk')].forEach(e=>e.remove());
+  MARKS.filter(m=>m.v===view).forEach(m=>{
+    const el=document.createElement('div');
+    el.className='mk'+(sel===m.k?' act':'');
+    el.textContent=letter(m.k);
+    el.style.left=m.x+'%'; el.style.top=m.y+'%';
+    el.title=m.n;
+    el.addEventListener('pointerdown',e=>{e.stopPropagation();sel=m.k;drag=m;el.setPointerCapture(e.pointerId);render();drawList();});
+    stage.appendChild(el);
+  });
+  drawList();
+}
+function letter(k){const i=MARKS.findIndex(m=>m.k===k);return 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'[i]||'•';}
+stage.addEventListener('pointermove',e=>{
+  if(!drag) return;
+  const r=stage.getBoundingClientRect();
+  drag.x=Math.max(0,Math.min(100,+(((e.clientX-r.left)/r.width)*100).toFixed(1)));
+  drag.y=Math.max(0,Math.min(100,+(((e.clientY-r.top)/r.height)*100).toFixed(1)));
+  const el=[...stage.querySelectorAll('.mk')].find(x=>x.textContent===letter(drag.k));
+  if(el){el.style.left=drag.x+'%';el.style.top=drag.y+'%';}
+  drawList();
+});
+stage.addEventListener('pointerup',()=>{drag=null;});
+function stageClick(e){
+  if(!sel||drag) return;
+  const m=MARKS.find(x=>x.k===sel); if(!m||m.v!==view) return;
+  const r=stage.getBoundingClientRect();
+  m.x=+(((e.clientX-r.left)/r.width)*100).toFixed(1);
+  m.y=+(((e.clientY-r.top)/r.height)*100).toFixed(1);
+  render();
+}
+function drawList(){
+  document.getElementById('list').innerHTML=MARKS.map(m=>
+    `<div class="row ${sel===m.k?'act':''}" onclick="pick('${m.k}')">
+      <span class="b">${letter(m.k)}</span>
+      <span class="nm">${m.n} <span style="color:#5a5a62">· ${m.v==='front'?'전면':'후면'}</span></span>
+      <span class="xy">${m.x} / ${m.y}</span>
+    </div>`).join('');
+}
+function pick(k){
+  sel=k; const m=MARKS.find(x=>x.k===k);
+  if(m && m.v!==view) setView(m.v); else render();
+}
+/* index.html 문자열에서 각 키의 view/x/y 만 새 좌표로 치환 */
+function applyCoords(html){
+  let n=0;
+  MARKS.forEach(m=>{
+    const re=new RegExp('('+m.k+':\\{part:[\\s\\S]*?)view:\'(?:front|back)\',x:[\\d.]+,y:[\\d.]+');
+    const before=html;
+    html=html.replace(re,(mo,p1)=>`${p1}view:'${m.v}',x:${m.x},y:${m.y}`);
+    if(html!==before) n++;
+  });
+  return {html,n};
+}
+function setStatus(msg,ok){
+  const s=document.getElementById('status');
+  s.innerHTML=msg; s.style.color= ok? '#7CFF9B' : '#ff8a8a';
+}
+async function downloadIndex(){
+  let src;
+  try{
+    const res=await fetch('index.html',{cache:'no-store'});
+    if(!res.ok) throw 0;
+    src=await res.text();
+  }catch(e){
+    setStatus('index.html을 읽지 못했어요. 이 파일을 index.html과 <b>같은 폴더</b>에 두고, 미리보기(서버)로 열어주세요. (파일을 더블클릭한 file:// 상태면 안 됩니다)',false);
+    return;
+  }
+  const {html,n}=applyCoords(src);
+  if(n===0){ setStatus('좌표를 바꿀 위치를 찾지 못했어요. index.html이 최신 버전인지 확인해주세요.',false); return; }
+  const blob=new Blob([html],{type:'text/html'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob); a.download='index.html'; a.click();
+  URL.revokeObjectURL(a.href);
+  setStatus(`완료 — ${n}개 좌표를 반영한 <b>index.html</b>을 내려받았어요. 이 파일을 기존 index.html에 덮어쓰면 끝!`,true);
+}
+function resetAll(){
+  DEF.forEach((d,i)=>{MARKS[i].x=d.x;MARKS[i].y=d.y;MARKS[i].v=d.v;});
+  sel=null; render();
+}
+setView('front');
+</script>
+</body>
+</html>
