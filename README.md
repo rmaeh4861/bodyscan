@@ -37,7 +37,7 @@ ffmpeg -i 원본.mp4 -vf scale=-2:720 -c:v libx264 -crf 28 -preset fast -an vide
 | 골반 · 고관절 | `adductor_glute.mp4` | 안쪽 허벅지 이완 | 내전근 |
 | 골반 · 고관절 | `adductor_glute_2.mp4` | 엉덩이 근육 강화 | 둔근 |
 | 무릎 | `knee_check.mp4` | 무릎 주변 안정화 | 대퇴사두근 |
-| 무릎 | `pfp.mp4` | 허벅지 앞 이완 | 대퇴사두근 |
+| 무릎 | pfp.mp4 | 허벅지 앞 이완 (엎드려서) | 대퇴사두근 |
 | 무릎 | `pfp_2.mp4` | 엉덩이 옆 근육 강화 | 중둔근 |
 | 무릎 | `pfp2.mp4` | 허벅지 앞 이완 | 대퇴사두근 |
 | 무릎 | `medial.mp4` | 안쪽 허벅지 이완 | 내전근 |
