@@ -25,10 +25,13 @@
   .bar>i{display:block;height:100%;background:var(--tx);border-radius:2px;transition:width .4s cubic-bezier(.4,0,.2,1);width:0;}
 
   .intro{justify-content:space-between;}
-  .intro-top{font-size:12px;letter-spacing:1px;color:var(--tx3);}
+  .intro-top{display:inline-flex;align-items:center;gap:7px;font-size:12px;letter-spacing:.5px;color:var(--tx3);text-decoration:none;}
+  .intro-top svg{flex:0 0 auto;}
   .intro-mid h1{font-size:34px;font-weight:600;line-height:1.42;letter-spacing:-.5px;}
   .intro-mid p{margin-top:16px;font-size:15px;line-height:1.7;color:var(--tx2);}
   .intro-note{font-size:12.5px;color:var(--tx3);margin-top:22px;line-height:1.6;}
+  .intro-badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px;}
+  .intro-badges span{font-size:11.5px;color:var(--tx2);border:.5px solid var(--line2);border-radius:999px;padding:5px 10px;}
 
   h2.q{font-size:22px;font-weight:600;line-height:1.45;letter-spacing:-.3px;}
   .q-sub{margin-top:10px;font-size:14px;line-height:1.65;color:var(--tx2);}
@@ -49,6 +52,7 @@
   .btn-primary:disabled{background:#1c1c20;color:#45454c;}
   .btn-full{width:100%;background:#fff;color:#000;padding:17px;border-radius:999px;font-size:15px;font-weight:600;border:none;cursor:pointer;}
   .btn-full:active{background:#dedede;}
+  .btn-full.btn-sub{margin-top:9px;background:transparent;color:var(--tx);border:.5px solid var(--line2);}
 
   .load{align-items:center;justify-content:center;text-align:center;}
   .spin{width:38px;height:38px;border:2px solid var(--line);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite;}
@@ -80,6 +84,10 @@
   .dbadge{width:24px;height:24px;border-radius:50%;background:#fff;color:#000;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
   .dpart{font-size:11.5px;color:var(--tx3);letter-spacing:.3px;}
   .dtitle{font-size:15.5px;font-weight:600;line-height:1.4;margin-top:2px;}
+  .dshort{margin-top:11px;font-size:14px;line-height:1.65;color:var(--tx);}
+  .dmore{display:none;}
+  .dcard.open .dmore{display:block;}
+  .dtoggle{margin-top:12px;background:transparent;border:none;color:var(--tx3);font-size:12.5px;cursor:pointer;padding:0;}
   .dbody{font-size:13.5px;line-height:1.85;color:#c7c7cd;margin-top:12px;}
   .dbody+.dbody{margin-top:9px;}
   .dnote{font-size:12.5px;line-height:1.75;color:var(--tx3);margin-top:12px;padding-top:12px;border-top:.5px solid var(--line);}
@@ -101,10 +109,20 @@
   .rbody .sub{font-size:12px;color:var(--tx2);margin-top:2px;}
   .rbody .d{font-size:12.5px;color:var(--tx3);margin-top:7px;line-height:1.6;}
 
-  .prof-sec{margin-top:30px;padding-top:24px;border-top:.5px solid var(--line);}
+  .free-end{margin-top:30px;font-size:12.5px;line-height:1.7;color:var(--tx3);}
+  .prof-sec{margin-top:16px;padding-top:24px;border-top:.5px solid var(--line);}
   .prof-head{display:flex;align-items:center;gap:9px;margin-bottom:13px;}
   .prof-tag{font-size:10px;font-weight:700;letter-spacing:1px;color:#000;background:#fff;border-radius:5px;padding:3px 8px;}
   .prof-t{font-size:15px;font-weight:600;}
+  .prof-one{border:.5px solid var(--line2);background:var(--card);border-radius:16px;padding:18px 17px;cursor:pointer;}
+  .prof-one:active{background:var(--card2);}
+  .prof-one-t{font-size:16px;font-weight:600;}
+  .prof-one-d{margin-top:9px;font-size:13.5px;line-height:1.75;color:var(--tx2);}
+  .prof-one-d b{color:var(--tx);font-weight:600;}
+  .prof-list{margin:13px 0 0;padding-left:17px;}
+  .prof-list li{font-size:13px;line-height:1.95;color:var(--tx2);}
+  .prof-list b{color:var(--tx);font-weight:600;}
+  .prof-one-c{margin-top:14px;font-size:12.5px;color:var(--tx3);}
   .prof-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
   .prof-card{position:relative;border:.5px solid var(--line2);background:var(--card);border-radius:14px;
     padding:20px 12px;text-align:center;cursor:pointer;overflow:hidden;transition:.15s;}
@@ -113,6 +131,8 @@
   .prof-nm{margin-top:8px;font-size:12.5px;font-weight:500;color:var(--tx2);filter:blur(.4px);}
   .prof-note{margin-top:12px;font-size:12px;line-height:1.7;color:var(--tx3);}
   .cta-wrap{margin-top:28px;}
+  .side-line{margin-top:12px;font-size:12.5px;color:var(--tx3);}
+  .unsure-note{margin-top:26px;border:.5px dashed var(--line2);border-radius:14px;padding:13px 15px;font-size:12.5px;line-height:1.65;color:var(--tx2);}
   .cta-note{text-align:center;font-size:12.5px;color:var(--tx3);margin-top:11px;}
   .restart{width:100%;background:transparent;border:none;color:var(--tx4);font-size:13px;margin-top:18px;cursor:pointer;}
   .disc{text-align:center;font-size:11px;line-height:1.7;color:#3a3a40;margin-top:16px;padding-bottom:10px;}
@@ -121,15 +141,37 @@
   /* 연결 카드 · 주의 신호 · 전문가 평가 연결 */
   .combo{margin-top:18px;border:.5px solid var(--line2);background:var(--card2);border-radius:16px;padding:16px 17px;}
   .combo-eb{font-size:12px;color:var(--tx3);margin-bottom:8px;}
+  .combo-t{font-size:14.5px;font-weight:600;margin-bottom:8px;}
+  .rv-wrap{overflow:hidden;margin:0 0 14px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);}
+  .rv-track{display:flex;gap:10px;width:max-content;animation:rvscroll 34s linear infinite;}
+  .rv{flex:0 0 auto;border:.5px solid var(--line);background:var(--card);border-radius:12px;padding:10px 13px;font-size:12.5px;color:var(--tx2);line-height:1.5;}
+  .rv b{display:block;color:var(--tx);font-weight:500;margin-bottom:3px;}
+  .rv .st{letter-spacing:1px;font-size:11px;color:var(--tx3);}
+  @keyframes rvscroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @media (prefers-reduced-motion:reduce){.rv-track{animation:none;}}
   .combo-b{font-size:14px;line-height:1.7;color:var(--tx2);}
   .combo-f{margin-top:12px;padding-top:12px;border-top:.5px solid var(--line);font-size:13px;line-height:1.6;color:var(--tx);}
   .dcard-flag{border-color:#7f1d1d;}
   .dflag{font-size:12.5px;font-weight:600;color:#fca5a5;background:rgba(220,38,38,.12);border-radius:10px;padding:8px 10px;margin-bottom:12px;}
+  .banner{margin-top:16px;border-radius:14px;padding:14px 16px;font-size:13.5px;line-height:1.7;}
+  .banner-caution{background:var(--card2);color:var(--tx);border:.5px solid var(--line2);}
+  .banner-urgent{background:rgba(220,38,38,.14);color:#fca5a5;border:.5px solid rgba(220,38,38,.4);}
+  .dcard-caution{border-left:3px solid #fff;}
+  .dcard-urgent{border-left:3px solid #dc2626;background:rgba(220,38,38,.06);}
   .dtest{margin-top:12px;padding-top:11px;border-top:.5px solid var(--line);display:flex;flex-direction:column;gap:3px;}
   .dtest-k{font-size:11.5px;color:var(--tx3);}
   .dtest-v{font-size:13px;color:var(--tx2);line-height:1.5;}
   .rwarn{margin-top:8px;font-size:12px;color:#fca5a5;}
 </style>
+<!-- ▼ Microsoft Clarity: clarity.microsoft.com 에서 프로젝트 생성 후 발급되는 ID를
+     아래 CLARITY_ID_HERE 자리에 그대로 붙여넣으면 방문자 흐름 기록이 시작됩니다. ▼ -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "CLARITY_ID_HERE");
+</script>
 </head>
 <body>
 <div class="phone">
@@ -140,13 +182,21 @@
   </div>
 
   <section class="screen active intro pad" id="s-intro">
-    <div class="intro-top">모닝루틴 · 금선생</div>
+    <a class="intro-top" href="https://instagram.com/morning_rout" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+        <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/>
+      </svg>
+      <span>모닝루틴 · 금선생</span>
+    </a>
     <div class="intro-mid">
       <h1>1분,<br>집에서 하는<br>체형 분석 테스트</h1>
       <p>불편한 곳을 고르면, 몇 가지 자가 체크로<br>지금 내 몸의 패턴을 짚어드려요.</p>
-      <div class="intro-note">물리치료사가 설계한 자가 체크입니다.</div>
+      <div class="intro-badges"><span>물리치료사 설계</span><span>표준 검사 기반</span></div>
+      <div class="intro-note">통증이 심하거나 다친 직후라면 검사를 미뤄주세요.</div>
     </div>
+    <div class="rv-wrap"><div class="rv-track" id="rvTrack"></div></div>
     <button class="btn-full" onclick="startScan()">스캔 시작하기</button>
+    <button class="restart" id="resumeBtn" style="display:none;" onclick="openSaved()">지난 결과 이어서 보기</button>
   </section>
 
   <section class="screen pad" id="s-quiz">
@@ -155,6 +205,11 @@
       <button class="btn btn-ghost" onclick="prevStep()">이전</button>
       <button class="btn btn-primary" id="nextBtn" onclick="nextStep()">다음</button>
     </div>
+  </section>
+
+  <section class="screen pad" id="s-safety">
+    <div id="safetyArea" style="flex:1;display:flex;flex-direction:column;"></div>
+    <div class="nav"><button class="btn btn-primary" style="flex:1;" onclick="goSafetyNext()">확인 완료</button></div>
   </section>
 
   <section class="screen load pad" id="s-load">
@@ -175,9 +230,38 @@
 /* DM 링크: 배포 시 아래 핸들만 바꾸면 전체 버튼에 적용됩니다 */
 const IG_HANDLE='morning_rout';
 const DM_URL='https://ig.me/m/'+IG_HANDLE;
+/* 카카오톡 채널 주소: 채널 개설 후 아래 주소만 바꿔 넣으면 버튼이 살아납니다.
+   (카카오톡 채널 관리자센터 → 채널 만들기 → 채널 홈 URL 복사) */
+const KAKAO_URL='';
 function goDM(){ window.open(DM_URL,'_blank'); }
+function goKakao(){ if(KAKAO_URL) window.open(KAKAO_URL,'_blank'); else goDM(); }
+
+/* 후기: 실제로 받은 후기만 여기에 추가하세요. 지어낸 후기는 넣지 않습니다. */
+const REVIEWS=[];
+function renderReviews(){
+  const track=document.getElementById('rvTrack');
+  if(!track)return;
+  if(!REVIEWS.length){ const w=track.parentElement; if(w) w.style.display='none'; return; }
+  const one=REVIEWS.map(r=>`<div class="rv"><span class="st">${'★'.repeat(r.star||5)}</span><b>${r.text}</b>${r.who||''}</div>`).join('');
+  track.innerHTML=one+one;   /* 끊김 없이 흐르도록 두 번 반복 */
+}
+
+/* 결과 저장: 이 기기에만 저장돼요(서버로 보내지 않음) */
+const SAVE_KEY='mr_last_result';
+function saveResult(tags){
+  try{ localStorage.setItem(SAVE_KEY, JSON.stringify({t:tags,d:Date.now()})); }catch(e){}
+}
+function loadSaved(){
+  try{ return JSON.parse(localStorage.getItem(SAVE_KEY)||'null'); }catch(e){ return null; }
+}
+function openSaved(){
+  const v=loadSaved(); if(!v||!v.t||!v.t.length)return;
+  answers={}; escalate=false;
+  v.t.forEach((t,i)=>{ answers['saved_'+i+'_tag']=t; });
+  renderResult();
+}
 const PARTS=[
-  {id:'neck',label:'목 · 어깨'},{id:'back',label:'등 · 허리'},{id:'pelvis',label:'골반 · 고관절'},
+  {id:'neck',label:'목'},{id:'shoulder',label:'어깨'},{id:'back',label:'등 · 허리'},{id:'pelvis',label:'골반 · 고관절'},
   {id:'knee',label:'무릎'},{id:'wrist',label:'손목 · 팔꿈치'},{id:'ankle',label:'발목 · 발'},
 ];
 
@@ -185,75 +269,82 @@ const PARTS=[
 const DIFF={
   neck:[
     {q:'팔이나 손으로 저림이 내려가나요?',sub:'신경 흐름과 관련된 부분을 먼저 확인할게요.',
-     opts:[{t:'네, 특정 손가락까지 저려요',tag:'neck_nerve'},{t:'아니요',tag:''},{t:'잘 모르겠어요',tag:''}]},
+     opts:[{t:'네, 특정 손가락까지 저려요',tag:'neck_nerve'},{t:'아니요',tag:''},{t:'잘 모르겠어요',tag:'unsure'}]},
     {q:'벽에 등을 대고 섰을 때, 뒤통수가 벽에 자연스럽게 닿나요?',sub:'발뒤꿈치는 벽에서 한 뼘 정도 떨어뜨리고, 엉덩이와 등을 벽에 대주세요. 턱은 들지 말고 정면을 편하게 봐주세요.',
-     opts:[{t:'편하게 닿아요',tag:''},{t:'턱을 들어야 닿아요',tag:'forwardhead'},{t:'턱을 들어도 안 닿아요',tag:'forwardhead'},{t:'잘 모르겠어요',tag:''}]},
+     opts:[{t:'편하게 닿아요',tag:''},{t:'턱을 들어야 닿아요',tag:'forwardhead'},{t:'턱을 들어도 안 닿아요',tag:'forwardhead'},{t:'잘 모르겠어요',tag:'unsure'}]},
     {q:'의자에 바르게 앉아 천장을 올려다볼 때, 얼굴이 천장과 거의 평행해질 만큼 넘어가나요?',sub:'입은 다물고 천천히 올려다봐주세요. 불편하면 바로 멈추세요.',
-     opts:[{t:'잘 넘어가요',tag:''},{t:'뻣뻣해서 덜 넘어가요',tag:'straightneck'},{t:'어지럽거나 팔로 저림이 와서 멈췄어요',tag:'neck_caution'},{t:'잘 모르겠어요',tag:''}]},
-    {q:'천장을 보고 누워 턱을 당긴 채, 머리를 바닥에서 살짝 들어 10초 버틸 수 있나요?',sub:'베개 없이, 머리는 손가락 한 마디만큼만 들어보세요. 턱이 들리거나 목 앞 굵은 근육이 튀어나오면 "어려워요"예요.',
-     opts:[{t:'10초 버티기 어려워요',tag:'dnf_weak'},{t:'편하게 버틸 수 있어요',tag:''},{t:'잘 모르겠어요',tag:''}]},
-    {q:'그대로 누운 채 팔을 몸 옆에 편하게 두었을 때, 어깨 앞쪽이 바닥에서 떠 있나요?',sub:'어깨 끝과 바닥 사이에 손가락 두 개 이상 들어가면 떠 있는 거예요. 양쪽을 비교해보세요.',
-     opts:[{t:'한쪽이나 양쪽이 떠 있어요',tag:'roundshoulder'},{t:'바닥에 잘 닿아요',tag:''},{t:'잘 모르겠어요',tag:''}]},
+     opts:[{t:'잘 넘어가요',tag:''},{t:'뻣뻣해서 덜 넘어가요',tag:'straightneck'},{t:'어지럽거나 팔로 저림이 와서 멈췄어요',tag:'neck_caution'},{t:'잘 모르겠어요',tag:'unsure'}]},
+    {q:'베개 없이 누워 턱을 당긴 채, 머리를 손가락 한 마디만 들어 10초 버틸 수 있나요?',sub:'턱이 들리거나 목 앞 근육이 불룩 튀어나오면 "어려워요"로 골라주세요.',
+     opts:[{t:'10초 버티기 어려워요',tag:'dnf_weak'},{t:'편하게 버틸 수 있어요',tag:''},{t:'잘 모르겠어요',tag:'unsure'}]},
+  ],
+  shoulder:[
+    {q:'누워서 팔을 몸 옆에 편히 두었을 때, 어깨 앞쪽이 바닥에서 떠 있나요?',sub:'어깨 끝과 바닥 사이에 손가락 두 개가 들어가면 뜬 거예요. 양쪽 비교.',
+     opts:[{t:'한쪽이나 양쪽이 떠 있어요',tag:'roundshoulder'},{t:'바닥에 잘 닿아요',tag:''},{t:'잘 모르겠어요',tag:'unsure'}]},
     {q:'팔을 옆으로 들어 올릴 때, 특정 높이(어깨 근처)에서만 유독 아프거나 걸리나요?',sub:'끝까지 올리면 오히려 편해지는지도 함께 느껴보세요.',
      opts:[{t:'네, 그 높이에서 걸려요',tag:'impingement'},{t:'아니요',tag:''}]},
-    {q:'손을 등 뒤로 올려 반대쪽 날개뼈를 만지려 할 때, 한쪽이 유독 안 올라가나요?',sub:'양쪽을 번갈아 해보세요.',
-     opts:[{t:'네, 한쪽이 안 올라가요',tag:'shoulder_rot'},{t:'양쪽 비슷해요',tag:''},{t:'잘 모르겠어요',tag:''}]},
+    {q:'거울로 등을 봤을 때, 한쪽 어깨뼈 안쪽이 더 튀어나와 보이나요?',sub:'휴대폰으로 등을 찍어봐도 좋아요. 벽에 손을 짚고 밀었을 때 더 도드라지면 더 확실해요.',
+     opts:[{t:'네, 한쪽이 더 튀어나와요',tag:'scap_wing'},{t:'양쪽 다 등에 붙어 있어요',tag:''},{t:'잘 모르겠어요',tag:'unsure'}]},
+    {q:'손을 등 뒤로 올려 반대쪽 어깨뼈를 만지려 할 때, 한쪽이 유독 안 올라가나요?',sub:'양쪽을 번갈아 해보세요.',
+     opts:[{t:'네, 한쪽이 안 올라가요',tag:'shoulder_rot'},{t:'양쪽 비슷해요',tag:''},{t:'잘 모르겠어요',tag:'unsure'}]},
   ],
   back:[
-    {q:'다리로 저림이나 당김이 무릎 아래까지 내려가나요?',sub:'신경 흐름과 관련된 부분을 먼저 확인할게요.',
-     opts:[{t:'네, 무릎 아래까지요',tag:'back_nerve'},{t:'무릎 위까지만요',tag:''},{t:'저림은 없어요',tag:''}]},
+    {q:'누워서 한쪽 다리를 무릎 편 채 천천히 들어올릴 때, 어떤 느낌이 드나요?',sub:'허벅지가 바닥에서 30~70도쯤 올라간 지점을 봐주세요. 양쪽 다 해보세요.',
+     opts:[{t:'무릎 아래(종아리·발)까지 저리거나 찌릿해요',tag:'back_nerve'},
+           {t:'허벅지 뒤가 팽팽하게 당기기만 해요',tag:'ham_tight'},
+           {t:'별 느낌 없이 잘 올라가요',tag:''},
+           {t:'잘 모르겠어요',tag:'unsure'}]},
     {q:'앞으로 숙일 때와 뒤로 젖힐 때, 어느 쪽이 더 불편한가요?',
      opts:[{t:'앞으로 숙일 때',tag:'flexion'},{t:'뒤로 젖힐 때',tag:'extension'},{t:'비슷해요',tag:''}]},
     {q:'오래 앉아 있다가 일어설 때 허리가 유독 뻣뻣한가요?',
      opts:[{t:'네',tag:'sitstiff'},{t:'아니요',tag:''}]},
     {q:'옆구리 한쪽만 자주 뭉치고, 반대쪽으로 몸을 기울일 때 그쪽이 유독 당기나요?',
-     opts:[{t:'네',tag:'ql'},{t:'아니요',tag:''},{t:'잘 모르겠어요',tag:''}]},
-    {q:'누웠다 일어나거나 몸을 돌릴 때, 허리에 순간 힘이 빠지거나 찌릿해서 움직이다 멈칫하게 되나요?',
-     opts:[{t:'네, 가끔 그래요',tag:'instab'},{t:'아니요',tag:''}]},
+     opts:[{t:'네',tag:'ql'},{t:'아니요',tag:''},{t:'잘 모르겠어요',tag:'unsure'}]},
+    {q:'허리 밑에 손을 넣고 한쪽 다리를 편 채 한 뼘 들어올릴 때, 허리가 손에서 뜨나요?',sub:'골반이 따라 들리는지도 같이 보세요. 한쪽씩, 양쪽 다.',
+     opts:[{t:'허리가 손에서 뜨거나 골반이 따라 들려요',tag:'instab'},
+           {t:'허리·골반이 그대로 있어요',tag:''},
+           {t:'다리가 유난히 무거워서 들기 힘들어요',tag:'instab'}]},
   ],
   pelvis:[
-    {q:'다리 뒤로 저림 혹은 당김이 있나요?',sub:'신경 흐름과 관련된 부분을 먼저 확인할게요.',
-     opts:[{t:'네, 있어요',tag:'pelvis_nerve'},{t:'아니요, 없어요',tag:''},{t:'잘 모르겠어요',tag:''}]},
+    {q:'엉덩이 깊은 곳이 뻐근하면서 다리 뒤로 저림이 이어지나요?',sub:'허리보다 엉덩이 쪽에서 시작되는 느낌인지 봐주세요.',
+     opts:[{t:'네, 엉덩이에서 시작돼요',tag:'pelvis_nerve'},{t:'아니요, 없어요',tag:''},{t:'잘 모르겠어요',tag:'unsure'}]},
     {q:'누워서 다리를 4자로 만들고(발목을 반대 무릎 위에 올리기), 올린 다리 쪽 무릎이 바닥에서 많이 떠 있나요?',sub:'양쪽을 비교해보세요.',
-     opts:[{t:'한쪽이 유독 떠요',tag:'faber_pos'},{t:'양쪽 비슷해요',tag:''},{t:'잘 모르겠어요',tag:''}]},
+     opts:[{t:'한쪽이 유독 떠요',tag:'faber_pos'},{t:'양쪽 비슷해요',tag:''},{t:'잘 모르겠어요',tag:'unsure'}]},
     {q:'쪼그려 앉거나 깊게 앉을 때, 사타구니 앞쪽이 걸리듯 불편한가요?',
      opts:[{t:'네',tag:'ir_limit'},{t:'아니요',tag:''}]},
-    {q:'오래 앉아 있다 일어설 때, 골반 앞쪽(사타구니 위쪽)이 당겨서 허리를 바로 펴기 어렵나요?',
-     opts:[{t:'네',tag:'iliopsoas_short'},{t:'아니요',tag:''}]},
-    {q:'짝다리·다리 꼬기가 편하고, 안쪽 허벅지가 자주 뭉치거나 당기나요?',
-     opts:[{t:'네',tag:'adductor_glute'},{t:'아니요',tag:''}]},
+    {q:'누워서 한쪽 무릎을 두 손으로 가슴까지 안았을 때, 반대쪽(펴진) 다리가 바닥에서 뜨나요?',sub:'양쪽을 바꿔서 비교해보세요.',
+     opts:[{t:'네, 반대쪽 다리가 떠요',tag:'iliopsoas_short'},{t:'바닥에 잘 붙어있어요',tag:''},{t:'잘 모르겠어요',tag:'unsure'}]},
+    {q:'가만히 바르게 앉아 있는 자세보다, 짝다리나 다리 꼬기가 더 편한가요?',
+     opts:[{t:'네, 그게 더 편해요',tag:'adductor_glute'},{t:'아니요',tag:''}]},
   ],
   knee:[
-    {q:'무릎이 붓거나, 걷다가 갑자기 힘이 빠지듯 꺾인 적이 있나요?',sub:'상태를 먼저 확인할게요.',
-     opts:[{t:'네, 있어요',tag:'knee_check'},{t:'아니요',tag:''}]},
+    {q:'최근에도 무릎이 붓거나, 걷다가 힘이 빠지듯 꺾이는 일이 반복되나요?',sub:'상태를 먼저 확인할게요.',
+     opts:[{t:'네, 반복돼요',tag:'knee_check'},{t:'아니요',tag:''}]},
     {q:'무릎에서 가장 아픈 곳은 어디인가요?',
      opts:[{t:'앞쪽(무릎뼈 주변)',tag:'pfp'},{t:'안쪽',tag:'medial'},{t:'바깥쪽',tag:'lateral'},{t:'뒤쪽(오금)',tag:'posterior'},{t:'아프진 않아요',tag:''}]},
     {q:'계단을 내려갈 때나 쪼그려 앉을 때 유독 아픈가요?',
      opts:[{t:'네',tag:'pfp2'},{t:'아니요',tag:''}]},
     {q:'무릎을 구부렸다 펼 때 "딸깍" 소리가 나거나 걸리는 느낌이 있나요?',
-     opts:[{t:'소리와 함께 걸리거나 멈칫해요',tag:'catching'},{t:'소리만 나고 걸리진 않아요',tag:''},{t:'아니요',tag:''}]},
+     opts:[{t:'소리와 함께 걸리거나 멈칫해요',tag:'catching'},{t:'소리만 나고 걸리진 않아요',tag:''},{t:'가끔 걸려서 몇 초 안 펴질 때가 있어요',tag:'knee_locked'}]},
   ],
   wrist:[
-    {q:'손 저림이 특히 엄지·검지·중지 쪽이고, 밤에 저려서 깰 때가 있나요?',sub:'신경 흐름과 관련된 부분을 먼저 확인할게요.',
-     opts:[{t:'네',tag:'cts_strong'},{t:'아니요',tag:''},{t:'잘 모르겠어요',tag:''}]},
-    {q:'물건을 쥐거나 손목을 펴거나 들어 올릴 때, 팔꿈치 바깥쪽이 아픈가요?',
+    {q:'손등끼리 맞대고 손목을 굽힌 채 1분 있을 때, 엄지·검지·중지가 저려오나요?',sub:'손목 신경 통로를 직접 확인하는 동작이에요.',
+     opts:[{t:'네, 저려와요',tag:'cts_strong'},{t:'괜찮아요',tag:''},{t:'잘 모르겠어요',tag:'unsure'}]},
+    {q:'손목을 편 채 반대 손으로 손등을 눌러 버틸 때, 팔꿈치 바깥쪽이 아픈가요?',sub:'힘을 주는 방향으로 버텨보세요.',
      opts:[{t:'네',tag:'tenniselbow'},{t:'아니요',tag:''}]},
-    {q:'손목을 손바닥 쪽으로 굽히거나 문고리를 돌릴 때, 팔꿈치 안쪽이 아픈가요?',
+    {q:'손목을 굽힌 채 반대 손으로 손바닥을 눌러 버틸 때, 팔꿈치 안쪽이 아픈가요?',
      opts:[{t:'네',tag:'golferelbow'},{t:'아니요',tag:''}]},
     {q:'엄지를 손바닥 안에 감싸 쥐고 손목을 새끼손가락 쪽으로 꺾으면, 엄지 쪽 손목이 찌릿하게 아픈가요?',
-     opts:[{t:'네',tag:'dequervain'},{t:'아니요',tag:''},{t:'잘 모르겠어요',tag:''}]},
-    {q:'마우스·아기 안기·요리처럼 손목을 반복해서 쓰는 일이 많나요?',
-     opts:[{t:'네',tag:'overuse'},{t:'아니요',tag:''}]},
+     opts:[{t:'네',tag:'dequervain'},{t:'아니요',tag:''},{t:'잘 모르겠어요',tag:'unsure'}]},
   ],
   ankle:[
     {q:'아침 첫 걸음이나 오래 앉았다 일어설 때 발뒤꿈치가 유독 아픈가요?',
      opts:[{t:'네',tag:'fascia'},{t:'아니요',tag:''}]},
     {q:'앉아서 엄지발가락을 위로 젖혔을 때, 발뒤꿈치 안쪽이 당기거나 아픈가요?',
-     opts:[{t:'네',tag:'fascia2'},{t:'아니요',tag:''},{t:'잘 모르겠어요',tag:''}]},
+     opts:[{t:'네',tag:'fascia2'},{t:'아니요',tag:''},{t:'잘 모르겠어요',tag:'unsure'}]},
     {q:'예전에 발목을 접질린 적이 있고, 지금도 가끔 꺾이거나 불안정한가요?',
      opts:[{t:'네',tag:'instability'},{t:'아니요',tag:''}]},
-    {q:'쪼그려 앉을 때 발뒤꿈치가 바닥에서 뜨나요?',
-     opts:[{t:'네, 떠요',tag:'calf_tight'},{t:'붙어 있어요',tag:''},{t:'잘 모르겠어요',tag:''}]},
+    {q:'검사할 발을 벽 앞에 두고(발끝에서 벽까지 한 뼘), 뒤꿈치를 붙인 채 그 발의 무릎으로 벽을 눌러보세요. 무릎이 벽에 닿나요?',sub:'반대 발은 뒤에 두고 균형만 잡아요. 뒤꿈치가 뜨면 닿아도 안 닿은 걸로 봐요.',
+     opts:[{t:'뒤꿈치가 뜨거나 무릎이 안 닿아요',tag:'calf_tight'},{t:'뒤꿈치 붙인 채 닿아요',tag:''},{t:'잘 모르겠어요',tag:'unsure'}]},
     {q:'아킬레스건(발뒤꿈치 위 힘줄)이 아침에 뻣뻣하거나 누르면 아픈가요?',
      opts:[{t:'네',tag:'achilles'},{t:'아니요',tag:''}]},
   ],
@@ -264,226 +355,341 @@ const DIFF={
 const PATTERN={
   /* --- 목·어깨 --- */
   neck_nerve:{part:'목 · 팔',title:'목에서 팔로 이어지는 저림 패턴',
+    short:'목 신경이 지나는 길에서 자극을 받아 팔까지 저림이 내려와요',
     cause:'저림이 팔을 따라 특정 손가락까지 내려가는 것은, 목에서 나오는 신경이 지나는 길에서 자극을 받고 있을 가능성과 연결됩니다.',
     symp:'특정 손가락의 저림이나 감각 둔함, 목을 특정 방향으로 돌릴 때 증상이 달라지는 느낌이 함께 나타날 수 있습니다.',
     guide:'이런 신호는 단순한 근육 뭉침과는 결이 다르기 때문에, 스트레칭만으로 넘기기보다 상태 변화를 꼼꼼히 지켜보시는 것이 좋습니다. 저림이 계속되거나 범위가 넓어진다면 전문적인 확인을 함께 받아보시길 권해드립니다.',
     test:{name:'스펄링 검사 · 팔 신경 긴장 검사',daily:'팔로 내려가는 저림 양상'},
-    view:'back',x:49.8,y:20.5,flag:true},
+    view:'back',x:49.8,y:20.5,level:'caution'},
   neck_caution:{part:'목',title:'목을 젖힐 때 나타나는 주의 신호',
+    short:'근육만으로 설명되지 않는 신호라, 운동보다 확인이 먼저예요',
     cause:'고개를 뒤로 젖힐 때 어지럽거나 팔로 저림이 내려오는 것은, 근육이 뻣뻣한 것만으로는 설명되지 않는 신호일 수 있습니다.',
     symp:'천장을 보거나 머리를 감을 때처럼 목을 젖히는 순간에만 증상이 나타나는 경우가 많습니다.',
     guide:'목을 뒤로 젖히는 스트레칭은 잠시 쉬어주세요. 같은 증상이 반복된다면 운동을 시작하기 전에 진료로 먼저 확인해보시길 권해드립니다.',
     test:{name:'경추 신전 유발 검사',daily:'천장 올려다보기'},
-    view:'back',x:50,y:20.5,flag:true},
+    view:'back',x:50,y:20.5,level:'urgent'},
   forwardhead:{part:'목',title:'거북목형 목 앞쪽 쏠림 패턴',
+    short:'목이 어깨보다 앞으로 나와 목 뒤쪽 부담이 커져 있어요',
     cause:'뒤통수가 벽에 편하게 닿지 않는 것은, 머리가 몸통보다 앞에 놓여 목뒤 근육이 계속 머리 무게를 붙잡고 있을 가능성과 연결됩니다. 등 윗부분이 굽어 있어도 머리가 따라 앞으로 나올 수 있어요.',
     symp:'오후로 갈수록 목덜미가 무겁고 어깨 위쪽이 뻐근하며, 눈의 피로나 가벼운 두통이 함께 오기도 합니다.',
     guide:'틈틈이 턱을 살짝 뒤로 당겨 목을 세워주는 습관이 도움이 됩니다. 뻐근함이 점점 심해진다면 상태 변화를 지켜보시고 필요하면 상담을 통해 관리를 시작해보시길 권해드립니다.',
     test:{name:'벽-뒤통수 거리 검사 · 머리 앞쏠림 각도',daily:'벽에 기대 서기'},
     view:'back',x:50.1,y:17.4},
   straightneck:{part:'목',title:'목 뒤로 젖히기 제한 패턴 (일자목 경향)',
+    short:'목을 뒤로 젖히는 움직임 범위가 줄어 있어요',
     cause:'고개를 뒤로 젖히는 범위가 줄어든 것은, 목 뒤 관절과 근육, 등 윗부분이 굳어 펴지는 움직임이 부족할 가능성과 연결됩니다. 흔히 말하는 일자목(목 곡선 감소)에서 자주 함께 보이지만, 곡선 자체는 영상 검사로 확인해요.',
     symp:'천장을 오래 올려다보기 힘들고, 목 뒤가 막히는 느낌이 들 수 있습니다. 오래 앉아 있으면 목덜미가 빨리 무거워지기도 합니다.',
     guide:'목만 젖히기보다 등 위쪽까지 함께 펴주는 움직임이 도움이 됩니다. 젖힐 때 어지럽거나 팔로 저림이 내려온다면 멈추고 상태 확인을 권해드립니다.',
     test:{name:'경추 신전 가동범위 검사',daily:'천장 올려다보기'},
     view:'back',x:49.8,y:14.5},
   dnf_weak:{part:'목',title:'목 앞쪽 깊은 근육 힘 저하 패턴',
+    short:'머리를 받치는 목 앞 근육이 오래 버티지 못해요',
     cause:'턱을 당긴 채 머리를 오래 들고 있기 힘든 것은, 목 앞쪽에서 목뼈를 받쳐주는 깊은 근육의 지구력이 떨어져 있을 가능성과 연결됩니다.',
     symp:'오래 앉아 일하면 목이 앞으로 밀리고, 목뒤·어깨 위 근육이 대신 버티느라 빨리 뻐근해질 수 있습니다.',
     guide:'목 앞쪽 깊은 근육을 짧게 자주 깨워주면 자세를 버티는 힘이 좋아집니다. 한 번에 오래 하기보다 조금씩 자주가 좋습니다.',
-    test:{name:'깊은 목굽힘근 지구력 검사',daily:'누워서 머리 살짝 들기'},
+    test:{name:'목 깊은 굽힘근 지구력 검사',daily:'누워서 머리 살짝 들기'},
     view:'front',x:50.1,y:21.8},
   impingement:{part:'어깨',title:'어깨 힘줄 끼임 패턴 (어깨충돌 양상)',
+    short:'팔을 드는 특정 구간에서 어깨 힘줄이 눌려요',
     cause:'팔을 옆으로 들 때 특정 높이에서만 걸리거나 아픈 것은, 위팔뼈와 어깨뼈 사이에서 힘줄이 눌릴 가능성과 연결됩니다.',
     symp:'팔을 들거나 뒤로 뻗을 때 어깨 앞·옆이 찌릿하고, 밤에 그쪽으로 누우면 불편할 수 있습니다.',
-    guide:'팔을 무리하게 들어올리는 동작을 잠시 줄이고, 날개뼈를 안정시키는 움직임부터 시작하는 것이 좋습니다. 밤 통증이 이어지거나 힘이 빠지면 상태 확인을 권해드립니다.',
+    guide:'팔을 무리하게 들어올리는 동작을 잠시 줄이고, 어깨뼈를 안정시키는 움직임부터 시작하는 것이 좋습니다. 밤 통증이 이어지거나 힘이 빠지면 상태 확인을 권해드립니다.',
     test:{name:'통증 호 검사 · 호킨스-케네디 검사',daily:'팔 옆으로 들어 올리기'},
     view:'front',x:61.5,y:24.5},
   roundshoulder:{part:'어깨',title:'라운드숄더형 어깨 말림 패턴',
+    short:'가슴 앞 근육이 짧아 어깨가 앞으로 말려 있어요',
     cause:'누웠을 때 어깨 앞쪽이 바닥에서 뜨는 것은, 가슴 앞쪽 근육(특히 작은가슴근)이 짧아져 어깨를 앞으로 당기고 있을 가능성과 연결됩니다.',
     symp:'등 위쪽이 자주 결리거나, 깊게 숨쉬기가 답답하게 느껴질 수 있습니다.',
     guide:'가슴 앞쪽을 열어주는 움직임을 하루 중 짧게 반복하면 도움이 됩니다. 팔을 들 때 통증이 함께 있다면 변화를 관찰하며 관리해보시길 권해드립니다.',
     test:{name:'작은가슴근 길이 검사',daily:'누워서 어깨 높이 보기'},
     view:'front',x:38.5,y:26},
   shoulder_rot:{part:'어깨',title:'어깨 회전 가동성 제한 패턴',
+    short:'한쪽 어깨가 안쪽으로 덜 돌아가요',
     cause:'손을 등 뒤로 올릴 때 한쪽이 안 올라가는 것은, 그쪽 어깨가 안쪽으로 회전하는 범위가 줄어 있을 가능성과 연결됩니다.',
     symp:'뒷주머니에 손 넣기, 등 뒤로 손 올리기처럼 뒤로 팔을 돌리는 동작이 한쪽만 불편할 수 있습니다.',
     guide:'어깨를 부드럽게 회전시키는 움직임으로 범위를 넓혀주면 도움이 됩니다. 좌우 차이가 크면 변화를 관찰해보세요.',
     test:{name:'애플리 스크래치 검사',daily:'등 뒤로 손 올리기'},
     view:'back',x:61.2,y:26},
+  scap_wing:{part:'어깨 · 등',title:'어깨뼈 들림 패턴 (익상견갑 경향)',
+    short:'어깨뼈를 등에 고정하는 힘이 한쪽만 약해요',
+    cause:'한쪽 어깨뼈 안쪽이 더 튀어나와 보이는 것은, 어깨뼈를 갈비뼈에 붙잡아두는 근육이 약해 어깨뼈가 뜨는 상태와 연결됩니다. 벽을 밀 때 더 도드라진다면 그 가능성이 더 큽니다.',
+    guide:'바닥이나 벽을 밀어 어깨뼈를 붙이는 힘을 길러주면 도움이 됩니다. 살짝 튀어나온 정도는 자세 습관만으로도 흔하니, 좌우 차이가 뚜렷할 때 의미가 커요. 최근 갑자기 생겼거나 팔이 잘 안 올라간다면 확인을 권해드립니다.',
+    test:{name:'어깨뼈 들림 관찰 · 벽 푸시업 검사',daily:'거울로 등 보기'},
+    view:'back',x:60,y:31},
 
   /* --- 등·허리 --- */
   back_nerve:{part:'허리 · 다리',title:'허리에서 다리로 이어지는 저림 패턴',
-    cause:'저림이나 당김이 무릎 아래까지 내려가는 것은, 허리에서 나오는 신경이 지나는 길에서 자극을 받고 있을 가능성과 연결됩니다. (국제 표준 하지직거상 검사 기반)',
-    symp:'다리 뒤나 옆을 따라 내려가는 저림, 오래 앉거나 특정 자세에서 심해지는 느낌이 함께 나타날 수 있습니다.',
-    guide:'무리한 스트레칭보다 상태 변화를 지켜보는 것이 먼저입니다. 저림이 계속되거나 다리에 힘이 빠지는 느낌이 함께 온다면 전문적인 확인을 받아보시길 권해드립니다.',
-    view:'back',x:57,y:52,flag:true},
+    short:'허리 신경이 당겨지며 무릎 아래까지 저림이 내려와요',
+    cause:'다리를 들 때 무릎 아래까지 저림이 내려가는 것은, 허리에서 나온 신경이 당겨지며 자극받고 있을 가능성과 연결됩니다. 허벅지 뒤가 당기기만 하는 것(근육이 짧은 경우)과는 구분되는 신호예요. (하지직거상 검사 원리)',
+    guide:'무리한 스트레칭보다 상태 변화를 지켜보시고, 저림이 계속되거나 다리에 힘이 빠지면 전문적인 확인을 받아보시길 권해드립니다.',
+    test:{name:'하지직거상 검사(SLR)',daily:'누워서 다리 들기'},
+    view:'back',x:57,y:52,level:'caution'},
+  ham_tight:{part:'허벅지 뒤 · 허리',title:'허벅지 뒤 근육 단축 패턴',
+    short:'허벅지 뒤 근육이 짧아 숙일 때 허리 부담이 커져요',
+    cause:'다리를 들 때 저림 없이 허벅지 뒤만 팽팽하게 당기는 것은, 허벅지 뒤 근육이 짧아져 있는 상태와 연결됩니다. 이 근육은 골반 아래쪽에 붙어 있어서, 짧아지면 숙일 때 허리가 대신 더 굽는 부담이 생길 수 있습니다.',
+    guide:'허벅지 뒤를 부드럽게 늘려주면 허리가 대신 일하는 부담이 줄어듭니다. 반동을 주지 말고 천천히 늘려주세요.',
+    test:{name:'하지직거상 가동범위 검사(햄스트링 길이)',daily:'누워서 다리 들기'},
+    view:'back',x:50,y:60},
   flexion:{part:'허리',title:'앞으로 숙일 때 부담이 커지는 허리 패턴',
+    short:'앞으로 굽힐 때 허리 앞쪽에 부담이 쏠려요',
     cause:'허리를 앞으로 굽힐 때 불편이 커지는 것은, 척추 앞쪽에서 하중을 받는 구조에 부담이 쏠려 있을 가능성과 연결됩니다.',
     symp:'세수할 때, 신발 신을 때, 앉았다 일어설 때 허리가 뻐근하거나 찌릿할 수 있습니다.',
     guide:'허리를 둥글게 만 채 오래 있는 자세를 줄이고, 부드럽게 펴주는 움직임을 더하면 편안해집니다. 다리로 내려가는 증상이 새로 생기면 상태를 확인해보세요.',
+    test:{name:'반복 굽힘·펴기 검사(맥켄지 원리)',daily:'앞으로 숙이기'},
     view:'back',x:50,y:47},
   extension:{part:'허리',title:'뒤로 젖힐 때 부담이 커지는 허리 패턴',
+    short:'뒤로 젖힐 때 허리 뒤쪽 공간이 좁아져요',
     cause:'허리를 뒤로 젖히거나 오래 서 있을 때 불편이 커지는 것은, 척추 뒤쪽 공간이 좁아지는 방향에서 자극이 생길 가능성과 연결됩니다.',
     symp:'오래 서 있거나 걷다가 허리·엉덩이가 무겁고, 잠시 앉으면 편해지는 느낌이 함께 나타날 수 있습니다.',
     guide:'허리를 과하게 꺾는 자세를 줄이고, 골반을 살짝 말아 넣는 감각을 익히면 도움이 됩니다. 걷는 거리가 점점 짧아지면 확인을 권해드립니다.',
+    test:{name:'반복 굽힘·펴기 검사(맥켄지 원리)',daily:'뒤로 젖히기'},
     view:'back',x:50,y:45},
   sitstiff:{part:'허리',title:'오래 앉는 자세로 굳은 허리 패턴',
+    short:'오래 앉은 자세로 허리가 잘 안 펴져요',
     cause:'같은 자세로 오래 앉아 있으면 허리 주변 근육과 근막이 그 자세에 맞춰 굳게 됩니다.',
     symp:'앉았다 일어선 직후 허리가 잘 펴지지 않고, 몇 걸음 걸으면 풀리는 양상이 반복됩니다.',
     guide:'한 시간에 한 번은 일어나 허리를 움직여주는 것만으로도 차이가 납니다.',
+    test:{name:'허리 분절 가동성 검사',daily:'앉았다 일어서기'},
     view:'back',x:50,y:43},
   ql:{part:'옆구리 · 허리',title:'옆구리 편측 단축 패턴',
+    short:'옆구리 좌우 길이 차이로 몸통이 한쪽으로 기울어요',
     cause:'짝다리, 한쪽으로 기대기 같은 습관이 반복되면 옆구리 근육이 한쪽만 짧아질 수 있습니다.',
     symp:'한쪽 옆구리만 뭉치거나, 반대쪽으로 몸을 기울일 때 유독 당길 수 있습니다.',
     guide:'짧아진 쪽을 늘려주는 동시에, 체중을 양쪽에 고르게 싣는 연습을 함께 하면 좋습니다.',
+    test:{name:'옆으로 기울이기 검사 · 허리네모근 길이 검사',daily:'옆으로 기울이기'},
     view:'back',x:42.8,y:42.9},
   instab:{part:'허리',title:'허리 안정성 저하 패턴',
-    cause:'움직이는 중에 허리에 순간 힘이 빠지거나 찌릿한 것은, 척추를 잡아주는 깊은 근육이 충분히 받쳐주지 못해 순간적으로 흔들릴 가능성과 연결됩니다.',
-    symp:'누웠다 일어나거나 몸을 돌릴 때 멈칫하게 되고, 같은 동작에서 반복될 수 있습니다.',
-    guide:'허리를 잡아주는 깊은 근육을 깨우는 운동이 도움이 됩니다. 증상이 잦아지면 상태를 확인해보시길 권해드립니다.',
+    short:'다리를 들 때 허리·골반을 붙잡는 힘이 부족해요',
+    cause:'다리를 들 때 허리가 바닥에서 뜨거나 골반이 따라 들리는 것은, 허리·골반을 제자리에 붙잡아주는 깊은 근육이 다리 무게를 충분히 받쳐주지 못하는 상태와 연결됩니다. 다리가 유난히 무겁게 느껴지는 것도 같은 신호예요. (능동 하지직거상 원리)',
+    guide:'허리·골반을 붙잡아주는 깊은 근육을 깨우는 운동이 도움이 됩니다. 좌우 차이가 크거나 반복된다면 상태를 확인해보시길 권해드립니다.',
+    test:{name:'능동 하지직거상 검사(ASLR)',daily:'다리 들 때 허리 뜨는지 보기'},
     view:'back',x:50,y:41},
 
   /* --- 골반 (기존 유지) --- */
-  pelvis_nerve:{part:'허리 · 다리',title:'허리에서 다리로 이어지는 저림 패턴',
-    cause:'다리 뒤로 저림이나 당김이 있는 것은, 허리에서 다리로 내려가는 신경이 지나는 길에서 자극을 받고 있을 가능성과 연결됩니다.',
-    symp:'다리 뒤나 옆을 따라 내려가는 저림, 오래 앉거나 특정 자세에서 심해지는 느낌이 함께 나타날 수 있습니다.',
-    guide:'이런 신호는 단순한 근육 뭉침과는 결이 다르기 때문에, 무리한 스트레칭보다 상태 변화를 지켜보는 것이 먼저입니다. 저림이 계속되거나 다리에 힘이 빠지는 느낌이 함께 온다면 전문적인 확인을 받아보시길 권해드립니다.',
-    view:'back',x:56,y:52,flag:true},
-  faber_pos:{part:'골반 · 고관절',title:'엉치·꼬리뼈 기능 제한 패턴',
-    cause:'4자 자세에서 한쪽 무릎이 유독 떠 있는 것은, 그쪽 고관절이 바깥으로 벌어지는 범위가 적거나 골반 뒤쪽 관절(엉치·꼬리뼈 부위)에 부담이 쏠렸을 가능성과 연결됩니다. (국제 표준 FABER 검사 기반)',
+  pelvis_nerve:{part:'엉덩이 · 다리',title:'엉덩이 깊은 근육 눌림 패턴 (궁둥구멍근 유형)',
+    short:'엉덩이 깊은 근육이 아래를 지나는 신경을 눌러요',
+    cause:'엉덩이 깊은 곳에서 시작해 다리 뒤로 이어지는 저림은, 엉덩이 깊은 곳의 근육(궁둥구멍근)이 그 아래 신경을 누르고 있을 가능성과 연결됩니다.',
+    guide:'엉덩이 뒤쪽을 부드럽게 늘려주는 스트레칭이 도움이 됩니다. 저림이 계속되거나 다리에 힘이 빠지면 전문적인 확인을 받아보시길 권해드립니다.',
+    test:{name:'궁둥구멍근 유발 검사(FAIR)',daily:'엉덩이에서 시작되는 저림'},
+    view:'back',x:56,y:52,level:'caution'},
+  faber_pos:{part:'골반 · 고관절',title:'고관절 바깥 돌림 제한 · 엉치 부담 패턴',
+    short:'한쪽 고관절이 바깥으로 덜 벌어져요',
+    cause:'4자 자세에서 한쪽 무릎이 유독 떠 있는 것은, 그쪽 고관절이 바깥으로 벌어지는 범위가 적거나 골반 뒤쪽 관절(엉치·꼬리뼈 부위)에 부담이 쏠렸을 가능성과 연결됩니다. (FABER 검사 원리)',
     symp:'양반다리가 한쪽만 불편하거나, 앉아 있을 때 한쪽 엉덩이·사타구니가 답답하게 느껴질 수 있습니다.',
     guide:'고관절을 부드럽게 돌려주는 움직임으로 범위를 넓혀주면 도움이 됩니다. 좌우 차이가 크거나 사타구니 통증이 이어진다면 상태 변화를 지켜보시길 권해드립니다.',
+    test:{name:'FABER(4자) 검사',daily:'누워서 4자 만들기'},
     view:'front',x:49.1,y:49.4},
   ir_limit:{part:'고관절',title:'고관절 안쪽 회전 제한 패턴',
-    cause:'쪼그려 앉거나 깊게 앉을 때 사타구니 앞쪽이 걸리는 느낌은, 고관절을 깊게 굽히고 안쪽으로 돌릴 때 넙다리뼈 머리와 골반 테두리가 서로 가까워지며 그 사이 조직이 눌릴 가능성과 연결됩니다. 고관절 안쪽 회전 범위가 줄어 있을수록 이 느낌이 잘 나타납니다. (국제 표준 FADIR 검사 기반)',
-    symp:'깊게 앉기, 양반다리, 차에서 내릴 때 사타구니 앞이 걸리듯 불편한 느낌이 들 수 있습니다.',
-    guide:'엉덩이 뒤쪽을 부드럽게 늘려 고관절 회전 범위를 넓혀주면 도움이 됩니다. 앞쪽을 무리하게 누르는 동작은 오히려 걸림을 키울 수 있어 피하는 편이 좋습니다.',
+    short:'고관절을 깊게 굽힐 때 앞쪽 공간이 좁아 끼임이 생겨요',
+    cause:'깊게 앉을 때 사타구니 앞이 걸리는 것은, 넙다리뼈(다리뼈)와 골반이 만나는 자리가 깊이 접히며 그 사이 공간이 좁아져 조직이 끼일 가능성과 연결됩니다. 쪼그려 앉기, 차에서 몸을 돌려 내릴 때 잘 나타나요.',
+    guide:'걸리지 않는 범위에서 다리를 안쪽으로 돌리는 연습이 도움이 됩니다. 엉덩이 뒤쪽 근육이 짧으면 안쪽으로 도는 걸 막으니 뒤쪽도 함께 늘려주세요. 사타구니 앞을 눌러 늘리는 동작은 피하는 게 좋아요.',
+    test:{name:'FADIR(굽힘·모음·안쪽돌림) 검사',daily:'깊게 쪼그려 앉기'},
     view:'front',x:53.5,y:55.8},
   iliopsoas_short:{part:'골반 앞쪽',title:'골반 앞쪽 근육 단축 · 앞으로 기운 골반 패턴',
-    cause:'오래 앉아 있다 일어설 때 골반 앞쪽(사타구니 위쪽)이 당기는 것은, 고관절 앞쪽 근육이 짧아져 골반을 앞으로 기울이고 있을 가능성과 연결됩니다. (국제 표준 토마스 검사 기반)',
-    symp:'앉아 있다 서면 골반 앞쪽이 뻐근해 허리를 바로 펴기 어렵고, 골반이 앞으로 기운 느낌이 들 수 있습니다.',
+    short:'고관절 앞 근육이 짧아 골반이 앞으로 기울어 있어요',
+    cause:'한쪽 무릎을 가슴까지 안았을 때 반대쪽 다리가 바닥에서 뜨는 것은, 고관절 앞쪽 근육이 짧아져 골반을 앞으로 기울이고 있을 가능성과 연결됩니다. (변형 토마스 검사 원리)',
     guide:'골반 앞쪽 근육을 늘려주는 무릎 꿇기 스트레칭이 도움이 됩니다. 골반이 앞으로 많이 기울어 있다면 엉덩이·배 근육의 힘을 함께 길러주는 접근이 필요합니다.',
+    test:{name:'토마스 검사',daily:'무릎 안고 반대 다리 보기'},
     view:'front',x:55.4,y:49.2},
   adductor_glute:{part:'골반 · 안쪽 허벅지',title:'안쪽 허벅지 단축 · 엉덩이 힘 저하 패턴',
+    short:'안쪽 허벅지에 기대느라 엉덩이 근육을 덜 써요',
     cause:'안쪽 허벅지가 자주 당기고 짝다리가 편한 것은 안쪽 허벅지 근육이 짧아진 상태일 수 있고, 이 경우 엉덩이 근육이 제 역할을 덜 하게 되는 흐름과 연결됩니다.',
     symp:'안쪽 허벅지가 자주 뭉치거나, 걷고 서는 동안 엉덩이에 힘이 덜 실리는 느낌이 들 수 있습니다.',
     guide:'안쪽 허벅지를 늘리면서 엉덩이 근육을 함께 깨워주는 움직임이 도움이 됩니다. 한쪽만 뚜렷하면 좌우 균형을 함께 살펴보세요.',
+    test:{name:'모음근 길이 검사 · 한 발 서기(트렌델렌버그) 검사',daily:'짝다리·다리 꼬기'},
     view:'front',x:46.7,y:54.7},
 
   /* --- 무릎 --- */
   knee_check:{part:'무릎',title:'무릎 불안정 · 부종 신호 패턴',
+    short:'관절 내부 자극이나 안정성 저하가 의심되는 신호예요',
     cause:'붓기나 갑자기 꺾이는 느낌은, 관절 안쪽 구조가 자극을 받고 있거나 무릎을 잡아주는 안정성이 떨어져 있을 가능성과 연결됩니다.',
     symp:'무릎이 부어오르거나, 걷다가 힘이 빠지듯 꺾이는 느낌이 반복될 수 있습니다.',
     guide:'이 신호는 운동 강도를 조절하면서 상태 변화를 꾸준히 지켜보는 것이 중요합니다. 붓기나 꺾임이 반복된다면 전문적인 확인을 함께 받아보시길 권해드립니다.',
-    view:'front',x:44,y:66.3,flag:true},
+    test:{name:'무릎 물참 검사 · 인대 안정성 검사(라크만)',daily:'붓기·꺾임'},
+    view:'front',x:44,y:66.3,level:'caution'},
   pfp:{part:'무릎 앞쪽',title:'무릎뼈 주변 압박 부하 패턴 (슬개대퇴 양상)',
-    cause:'무릎 앞쪽이 아픈 것은, 무릎뼈가 허벅지뼈 위에서 미끄러질 때 압력이 한쪽으로 쏠리는 흐름과 연결됩니다. 허벅지 앞 근육 긴장이나 엉덩이 근육의 지지 부족이 배경이 되는 경우가 많습니다.',
+    short:'무릎뼈가 움직일 때 압력이 한쪽으로 쏠려요',
+    cause:'무릎 앞쪽이 아픈 것은, 무릎뼈가 넙다리뼈(허벅지뼈) 위에서 미끄러질 때 압력이 한쪽으로 쏠리는 흐름과 연결됩니다. 허벅지 앞 근육 긴장이나 엉덩이 근육의 지지 부족이 배경이 되는 경우가 많습니다.',
     symp:'계단 내려갈 때, 오래 앉았다 일어설 때 무릎 앞이 시큰하거나 뻐근한 느낌이 듭니다.',
     guide:'허벅지 앞을 늘려주고 엉덩이 근육의 힘을 함께 길러주면 부담이 분산됩니다.',
+    test:{name:'무릎뼈 압박 검사 · 한 발 앉기 검사',daily:'무릎 앞 통증'},
     view:'front',x:43,y:70},
-  pfp2:{part:'무릎 앞쪽',title:'하중 동작 시 무릎 부담 패턴',
-    cause:'계단·쪼그리기에서 아픈 것은, 무릎이 굽혀지며 하중이 커질 때 앞쪽 구조에 압력이 집중되는 흐름과 연결됩니다.',
-    symp:'계단 내려가기, 쪼그려 앉기, 오래 앉았다 서기에서 유독 불편합니다.',
-    guide:'하중이 큰 동작을 잠시 줄이고, 허벅지 앞·엉덩이 근육을 함께 관리하면 도움이 됩니다.',
-    view:'front',x:56.2,y:66.5},
   medial:{part:'무릎 안쪽',title:'무릎 안쪽 하중 쏠림 패턴',
+    short:'체중 부하가 무릎 안쪽으로 몰려 있어요',
     cause:'걷거나 설 때 체중이 무릎 안쪽으로 몰리면 그 부위 조직에 부담이 누적됩니다. 발 아치가 낮거나 골반·고관절의 지지가 약할 때 함께 나타나는 경우가 많습니다.',
     symp:'오래 걷거나 서 있을 때 무릎 안쪽이 뻐근하고, 계단이나 경사에서 더 뚜렷해질 수 있습니다.',
     guide:'무릎만이 아니라 발과 골반을 함께 보는 접근이 필요합니다.',
+    test:{name:'안쪽 인대 스트레스 검사 · 맥머레이 검사',daily:'무릎 안쪽 통증'},
     view:'front',x:52.5,y:70.3},
   lateral:{part:'무릎 바깥쪽',title:'무릎 바깥 힘줄 마찰 패턴 (장경인대 양상)',
+    short:'허벅지 바깥 힘줄과 무릎 바깥뼈의 마찰이 반복돼요',
     cause:'무릎 바깥이 아픈 것은, 허벅지 바깥을 지나는 긴 힘줄(장경인대)이 무릎 바깥 뼈와 반복해서 마찰하는 흐름과 연결됩니다. 달리기·오래 걷기 후 흔합니다.',
     symp:'걷거나 뛸 때 무릎 바깥이 찌릿하고, 계단 내려갈 때 더 심해질 수 있습니다.',
     guide:'허벅지 바깥 라인과 엉덩이 옆 근육을 함께 관리하면 마찰이 줄어듭니다.',
+    test:{name:'노블 압박 검사 · 오버 검사',daily:'무릎 바깥 통증'},
     view:'front',x:38.9,y:70.2},
   posterior:{part:'무릎 뒤쪽',title:'오금 긴장 패턴',
+    short:'허벅지 뒤·종아리 긴장으로 오금이 당겨요',
     cause:'무릎 뒤(오금)가 아픈 것은, 허벅지 뒤 근육이나 종아리 위쪽이 짧아져 뒤쪽에 당김이 생기는 흐름과 연결됩니다.',
     symp:'무릎을 완전히 펴거나 다리를 뻗을 때 오금이 당기고, 오래 앉으면 뻣뻣해질 수 있습니다.',
     guide:'허벅지 뒤와 종아리를 부드럽게 늘려주면 도움이 됩니다. 붓기나 덩어리가 만져지면 확인을 권해드립니다.',
+    test:{name:'햄스트링 길이 검사(90-90)',daily:'오금 당김'},
     view:'back',x:56.4,y:70.7},
   catching:{part:'무릎',title:'무릎 걸림 · 소리 패턴',
+    short:'움직임 중 관절 안에서 매끄럽게 미끄러지지 못해요',
     cause:'구부렸다 펼 때 소리나 걸림은, 무릎 안 연골이나 힘줄이 움직임 중 부드럽게 미끄러지지 못하는 흐름과 연결됩니다. 통증 없는 소리는 대부분 문제되지 않습니다.',
-    symp:'소리와 함께 걸려서 순간 멈칫하거나, 잠긴 듯 펴지지 않는 느낌이 반복될 수 있습니다.',
-    guide:'소리만 나고 걸리지 않는다면 대부분 지켜봐도 괜찮습니다. 다만 걸림·잠김·붓기가 함께 온다면 상태 확인을 권해드립니다.',
+    guide:'소리만 나고 걸리지 않는다면 대부분 지켜봐도 괜찮습니다. 걸림이 반복되면 상태 확인을 권해드립니다.',
+    test:{name:'맥머레이 검사 · 관절 걸림 검사',daily:'딸깍 소리·걸림'},
     view:'front',x:56.4,y:71.8},
+  knee_locked:{part:'무릎',title:'무릎 잠김 신호',
+    short:'관절 안 구조가 움직임을 순간적으로 막고 있어요',
+    cause:'무릎이 가끔 걸려서 몇 초간 안 펴지는 것은, 무릎 안의 구조(반달연골 등)가 움직임을 순간적으로 막고 있을 가능성과 연결됩니다.',
+    guide:'걸린 무릎을 억지로 펴지 마시고, 반복된다면 운동보다 진료로 원인을 먼저 확인해보시길 권해드립니다.',
+    test:{name:'관절 잠김 검사(진료에서 확인)',daily:'안 펴지는 무릎'},
+    view:'front',x:56.4,y:71.8,level:'urgent'},
 
   /* --- 손목·팔꿈치 --- */
   cts_strong:{part:'손목 · 손',title:'손목 터널 신경 자극 패턴 (손목터널 양상)',
-    cause:'엄지·검지·중지 쪽 저림이 밤에 심해지는 것은, 손목을 지나는 신경 통로가 좁아져 자극이 생겼을 가능성과 연결됩니다. (국제 표준 팔렌·티넬 검사 기반)',
-    symp:'자다가 손이 저려 깨거나, 손을 털면 잠시 나아지는 양상이 반복될 수 있습니다.',
-    guide:'손목을 꺾은 채 오래 두는 자세를 줄이는 것이 우선입니다. 야간 저림이 계속되거나 손 힘이 떨어지면 상태 변화를 관찰하며 전문적인 확인을 받아보시길 권해드립니다.',
-    view:'front',x:31.9,y:50.7,flag:true},
-  tenniselbow:{part:'팔꿈치 바깥',title:'팔꿈치 바깥 힘줄 과부하 패턴 (테니스엘보 양상)',
-    cause:'손목을 펴거나 물건을 쥘 때 팔꿈치 바깥이 아픈 것은, 손목을 펴는 근육의 힘줄이 팔꿈치 바깥에 모이는 자리에 부담이 쌓였을 가능성과 연결됩니다. (국제 표준 코젠 검사 기반)',
-    symp:'물건을 들 때, 문고리를 돌릴 때 팔꿈치 바깥이 찌릿하게 아플 수 있습니다.',
+    short:'손목 신경 통로가 좁아져 손가락 저림이 생겨요',
+    cause:'손목을 굽힌 채 1분 두었을 때 엄지·검지·중지가 저려오는 것은, 손목을 지나는 신경 통로가 좁아져 자극이 생겼을 가능성과 연결됩니다. (팔렌 검사 원리)',
+    guide:'손목을 꺾은 채 오래 두는 자세를 줄이는 것이 우선입니다. 야간 저림이 계속되거나 손 힘이 떨어지면 전문적인 확인을 받아보시길 권해드립니다.',
+    test:{name:'팔렌 검사 · 티넬 검사',daily:'손목 굽힌 채 1분'},
+    view:'front',x:31.9,y:50.7,level:'caution'},
+  tenniselbow:{part:'팔꿈치 바깥(엄지 쪽)',title:'팔꿈치 바깥 힘줄 과부하 패턴 (테니스엘보 양상)',
+    short:'손목 폄근 힘줄이 팔꿈치 바깥에서 과부하를 받아요',
+    cause:'손목을 편 채 버틸 때 팔꿈치 바깥, 그러니까 손바닥을 위로 폈을 때 엄지와 같은 쪽 뼈 부근이 아픈 것은, 손목을 펴는 근육의 힘줄이 그 자리에 모여 부담이 쌓였을 가능성과 연결됩니다. (코젠 검사 원리)',
     guide:'통증이 있는 동작을 잠시 줄이면서 팔뚝 바깥쪽을 부드럽게 늘려주세요. 3주 이상 이어지면 상태 확인을 권해드립니다.',
+    test:{name:'코젠 검사',daily:'손등 눌러 버티기'},
     view:'front',x:31.9,y:38.5},
-  golferelbow:{part:'팔꿈치 안쪽',title:'팔꿈치 안쪽 힘줄 과부하 패턴 (골프엘보 양상)',
-    cause:'손목을 손바닥 쪽으로 굽히거나 비틀 때 팔꿈치 안쪽이 아픈 것은, 손목을 굽히는 근육의 힘줄이 팔꿈치 안쪽에 모이는 자리에 부담이 쌓였을 가능성과 연결됩니다.',
-    symp:'물건을 쥐고 당길 때, 손목을 손바닥 쪽으로 굽힐 때 팔꿈치 안쪽이 아플 수 있습니다.',
+  golferelbow:{part:'팔꿈치 안쪽(새끼손가락 쪽)',title:'팔꿈치 안쪽 힘줄 과부하 패턴 (골프엘보 양상)',
+    short:'손목 굽힘근 힘줄이 팔꿈치 안쪽에서 과부하를 받아요',
+    cause:'손목을 굽힌 채 버틸 때 팔꿈치 안쪽, 그러니까 손바닥을 위로 폈을 때 새끼손가락과 같은 쪽 뼈 부근이 아픈 것은, 손목을 굽히는 근육의 힘줄이 그 자리에 모여 부담이 쌓였을 가능성과 연결됩니다.',
     guide:'팔뚝 안쪽을 부드럽게 늘려주고, 쥐는 동작을 잠시 줄이면 도움이 됩니다.',
+    test:{name:'손목 굽힘 저항 검사',daily:'손바닥 눌러 버티기'},
     view:'front',x:62,y:39.2},
   dequervain:{part:'엄지 쪽 손목',title:'엄지 힘줄 자극 패턴 (드퀘르뱅 양상)',
-    cause:'엄지를 감싸 쥐고 손목을 꺾을 때 찌릿한 것은, 엄지를 움직이는 힘줄이 지나는 통로에 자극이 생긴 흐름과 연결됩니다. 아기 안기·스마트폰 사용이 배경이 되는 경우가 많습니다. (국제 표준 핀켈스타인 검사 기반)',
+    short:'엄지 힘줄이 지나는 통로에 자극이 쌓여 있어요',
+    cause:'엄지를 감싸 쥐고 손목을 꺾을 때 찌릿한 것은, 엄지를 움직이는 힘줄이 지나는 통로에 자극이 생긴 흐름과 연결됩니다. 아기 안기·스마트폰 사용이 배경이 되는 경우가 많습니다. (핀켈스타인 검사 원리)',
     symp:'엄지를 벌리거나 물건을 집을 때 엄지 쪽 손목이 아프고, 붓거나 만지면 아플 수 있습니다.',
     guide:'엄지를 크게 벌리는 동작을 잠시 줄이고, 손목을 중립에 두는 습관이 도움이 됩니다.',
+    test:{name:'핀켈스타인 검사',daily:'엄지 감싸고 손목 꺾기'},
     view:'front',x:71.2,y:52.5},
-  overuse:{part:'팔뚝 · 손목',title:'손목·팔뚝 과사용 피로 패턴',
-    cause:'손목을 계속 쓰는 활동이 많으면 팔뚝 근육에 피로가 쌓이며 뻐근함이 남기 쉽습니다.',
-    symp:'하루 끝 무렵 손목과 팔뚝이 무겁고, 쉬면 나아지지만 다음 날 다시 반복됩니다.',
-    guide:'사용 중간중간 손목을 양방향으로 풀어주는 습관이 도움이 됩니다.',
-    view:'front',x:67.5,y:48},
 
   /* --- 발목·발 --- */
-  fascia:{part:'발뒤꿈치',title:'발바닥 근막 과부하 패턴 (족저근막염 양상)',
+  fascia:{part:'발뒤꿈치',title:'발바닥 근막 과부하 패턴 (발바닥근막염 양상)',
+    short:'자는 동안 짧아진 발바닥 근막이 첫 걸음에 당겨져요',
     cause:'아침 첫 걸음에 발뒤꿈치가 아픈 것은, 자는 동안 짧아진 발바닥 근막이 첫 걸음에서 갑자기 늘어나는 흐름과 연결됩니다.',
     symp:'아침 첫 몇 걸음이 가장 아프고, 몇 분 걸으면 점차 나아지는 패턴이 반복됩니다.',
     guide:'일어나기 전 발목과 발가락을 먼저 움직여준 뒤 디디면 부담이 줄어듭니다. 이 패턴이 계속되면 관리를 시작하시고 상태 변화를 지켜보세요.',
-    view:'front',x:56.4,y:91.2},
-  fascia2:{part:'발 · 아치',title:'발바닥 근막 긴장 패턴',
-    cause:'엄지발가락을 젖혔을 때 발뒤꿈치 안쪽이 당기는 것은, 발바닥을 지나는 근막이 이미 팽팽해져 있다는 신호일 수 있습니다. (국제 표준 윈드라스 검사 기반)',
-    symp:'발뒤꿈치 안쪽의 당김, 오래 걷고 난 뒤의 발바닥 피로가 함께 나타날 수 있습니다.',
-    guide:'발바닥과 종아리를 부드럽게 풀어주는 관리부터 시작하시면 좋습니다.',
-    view:'front',x:43.8,y:92.2},
+    test:{name:'윈드라스 검사 · 뒤꿈치 압통 검사',daily:'아침 첫 걸음 통증'},
+    view:'back',x:56.4,y:91.2},
   instability:{part:'발목',title:'발목 불안정 패턴',
-    cause:'접질린 이후 발목이 다시 꺾이기 쉬운 것은, 인대와 감각 기능이 충분히 회복되지 않은 상태와 연결됩니다. (국제 표준 전방전위 검사 기반)',
+    short:'발목의 안정성과 균형 감각이 덜 회복돼 있어요',
+    cause:'접질린 이후 발목이 다시 꺾이기 쉬운 것은, 인대와 감각 기능이 충분히 회복되지 않은 상태와 연결됩니다.',
     symp:'평지에서도 가끔 발목이 꺾이거나, 울퉁불퉁한 길에서 불안한 느낌이 반복됩니다.',
     guide:'균형 잡기처럼 발목의 감각을 되살리는 훈련이 도움이 됩니다.',
+    test:{name:'전방 당김 검사 · 한 발 균형 검사',daily:'한 발로 서기'},
     view:'front',x:45.2,y:86.7},
   calf_tight:{part:'종아리 · 발목',title:'종아리 단축 · 발목 굽힘 제한 패턴',
-    cause:'쪼그려 앉을 때 발뒤꿈치가 뜨는 것은, 종아리 근육이 짧아 발목을 충분히 굽히지 못하는 흐름과 연결됩니다. (국제 표준 발목 굽힘 검사 기반)',
-    symp:'쪼그리기가 불편하고, 오래 걸으면 종아리가 쉽게 뭉칠 수 있습니다.',
+    short:'종아리가 짧아 발목이 접히는 범위가 줄어 있어요',
+    cause:'뒤꿈치를 붙인 채 무릎을 벽에 대기 어려운 것은, 종아리 근육이 짧아 발목이 충분히 접히지 않는 상태와 연결됩니다. 발목이 덜 접히면 걷거나 앉을 때 무릎과 발바닥이 대신 부담을 받게 돼요. (니투월 검사 원리)',
     guide:'종아리를 부드럽게 늘려 발목 굽힘 여유를 넓히면 무릎·발바닥 부담도 함께 줄어듭니다.',
+    test:{name:'니투월(무릎-벽) 검사',daily:'뒤꿈치 붙이고 무릎 벽에 대기'},
     view:'back',x:44.3,y:82.2},
   achilles:{part:'아킬레스건',title:'아킬레스 힘줄 부하 패턴',
+    short:'아킬레스 힘줄에 반복 부하가 쌓여 있어요',
     cause:'발뒤꿈치 위 힘줄이 아침에 뻣뻣하거나 누르면 아픈 것은, 종아리에서 발뒤꿈치로 이어지는 힘줄에 부담이 누적된 흐름과 연결됩니다.',
     symp:'아침 첫 걸음에 힘줄이 뻣뻣하고, 걷기 시작하면 풀리다가 오래 걸으면 다시 아플 수 있습니다.',
-    guide:'종아리를 늘리되 힘줄에 급격한 부하는 피하세요. 갑자기 끊어지는 느낌이 있었다면 즉시 확인이 필요합니다.',
+    guide:'종아리를 늘리되 힘줄에 급격한 부하는 피하세요.',
+    test:{name:'아킬레스 압통 검사 · 발끝 서기 검사',daily:'아침 뻣뻣함'},
     view:'back',x:55.4,y:87.2},
 };
 
 /* ================= 연결 카드 =================
    tags 중 min개 이상이 결과에 있으면 표시. 배열 앞쪽이 우선이며 한 장만 노출. */
 const COMBOS=[
-  {tags:['forwardhead','straightneck','dnf_weak','roundshoulder'],min:3,
+  /* ── 부위를 넘는 연결 (cross) : 두 부위를 고른 사람에게 가장 먼저 보여줌 ── */
+  {cross:true,tags:['roundshoulder','flexion','sitstiff'],min:2,must:['roundshoulder'],
+   title:'등이 말린 자세를 허리가 대신 버티고 있어요',
+   body:'가슴 앞이 짧아져 등 위쪽이 말리면, 몸을 세우는 일을 허리가 대신 맡게 돼요. 어깨를 펴는 것과 허리 부담을 줄이는 걸 같이 봐야 하는 이유예요.'},
+  {cross:true,tags:['calf_tight','pfp','pfp2'],min:2,must:['calf_tight','pfp'],
+   title:'발목이 덜 접혀서 무릎이 대신 일하고 있어요',
+   body:'종아리가 짧아 발목이 충분히 접히지 않으면, 앉거나 계단을 내려갈 때 무릎이 더 굽혀지며 부담을 대신 받아요. 무릎만 관리하면 잘 안 바뀌는 경우가 많아요.'},
+  {cross:true,tags:['iliopsoas_short','roundshoulder','scap_wing'],min:2,must:['iliopsoas_short'],
+   title:'골반이 앞으로 기울면 위쪽 어깨도 따라 말려요',
+   body:'골반이 앞으로 기울면 그 위 등이 둥글게 말리기 쉽고, 등이 말리면 어깨와 어깨뼈도 앞으로 따라가요. 어깨만 펴는 것보다 골반 각도를 같이 보는 게 빠른 경우가 많아요.'},
+  {tags:['iliopsoas_short','ir_limit'],min:2,
+   title:'골반이 기울어 고관절이 깊게 접힐 공간이 줄어든 흐름이에요',
+   body:'골반이 앞으로 기울면 다리뼈가 들어갈 공간이 좁아져서, 깊게 앉을 때 사타구니 앞이 더 쉽게 걸려요. 사타구니만 늘리기보다 골반 각도를 같이 보는 게 좋아요.'},
+  {cross:true,tags:['forwardhead','straightneck','dnf_weak','roundshoulder','scap_wing'],min:3,must:['roundshoulder'],
    title:'목·어깨가 한 방향으로 쏠리는 흐름이에요',
-   body:'물리치료에서는 이런 모습을 \'상부교차 패턴\'으로 묶어서 봐요. 가슴 앞과 목 뒤는 짧고 뻣뻣해지고, 목 앞 깊은 근육과 날개뼈 주변은 약해진 상태예요. 아래 패턴들은 따로따로 생긴 문제가 아니라, 한 자세 습관이 여러 곳에 남긴 흔적에 가까워요.'},
+   body:'물리치료에서는 이런 모습을 \'상부교차 패턴\'으로 묶어서 봐요. 가슴 앞과 목 뒤는 짧고 뻣뻣해지고, 목 앞 깊은 근육과 어깨뼈 주변은 약해진 상태예요. 아래 패턴들은 따로따로 생긴 문제가 아니라, 한 자세 습관이 여러 곳에 남긴 흔적에 가까워요.'},
+  {tags:['forwardhead','straightneck','dnf_weak'],min:3,
+   title:'목 앞뒤가 함께 무너진 흐름이에요',
+   body:'앞에서 받쳐주는 힘은 약해지고, 뒤로 젖히는 움직임은 줄고, 목은 앞으로 나온 상태가 겹쳐 있어요. 한 가지만 풀기보다 힘과 움직임을 같이 채워야 잘 바뀝니다.'},
   {tags:['forwardhead','straightneck'],min:2,
    title:'거북목과 일자목 경향은 함께 오는 경우가 많아요',
    body:'머리가 앞으로 나가면 목 윗부분은 젖혀지고 아랫부분은 곧게 펴지기 쉬워요. 그래서 두 결과가 같이 나오는 게 자연스러운 조합이에요. 병이 두 개 있다는 뜻은 아니에요.'},
   {tags:['forwardhead','dnf_weak'],min:2,
    title:'머리를 받쳐주는 앞쪽 힘이 부족한 흐름이에요',
    body:'목 앞 깊은 근육이 약하면 머리를 제자리에 붙잡아두기 어려워 앞으로 밀려나요. 그러면 목 뒤 근육이 대신 버티느라 뻐근해져요.'},
+  {tags:['roundshoulder','scap_wing'],min:2,
+   title:'어깨가 앞으로 말리면서 어깨뼈가 뜨는 흐름이에요',
+   body:'가슴 앞 근육이 짧아져 어깨가 앞으로 당겨지면, 어깨뼈를 등에 붙잡아주는 근육은 늘어나 힘을 쓰기 어려워져요. 가슴을 열어주는 것과 어깨뼈를 붙이는 힘을 같이 채우는 게 좋아요.'},
   {tags:['forwardhead','roundshoulder'],min:2,
    title:'머리와 어깨가 함께 앞으로 말려 있어요',
    body:'가슴 앞 근육이 짧아지면 어깨가 앞으로 당겨지고, 머리도 균형을 맞추려고 따라 나와요. 반대로 머리가 먼저 나가서 어깨가 따라가기도 해요.'},
   {tags:['straightneck','dnf_weak'],min:2,
    title:'목이 앞뒤로 모두 굳고 약해진 흐름이에요',
    body:'뒤로 젖히는 움직임은 줄고, 앞에서 받쳐주는 힘도 약해진 상태예요. 목을 한 방향으로만 풀기보다 움직임과 힘을 같이 채워주는 게 좋아요.'},
+  {cross:true,tags:['iliopsoas_short','extension'],min:2,
+   title:'골반이 앞으로 기울면서 허리가 함께 부담받는 흐름이에요',
+   body:'고관절 앞쪽 근육이 짧아지면 골반이 앞으로 기울고, 그만큼 허리는 더 젖혀진 상태로 버티게 돼요. 골반 앞쪽 당김과 허리 뒤로 젖힐 때 불편함이 같이 오는 경우가 많아요.'},
+  {tags:['flexion','sitstiff'],min:2,
+   title:'앉아 있는 시간이 허리 부담을 키우는 흐름이에요',
+   body:'오래 앉으면 허리가 굽은 자세로 굳고, 그 자세에서 숙이는 동작에 부담이 더 쏠려요. 스트레칭 한 번보다 한 시간에 한 번 일어나는 게 더 크게 작용해요.'},
+  {tags:['instab','ham_tight'],min:2,
+   title:'허리를 붙잡는 힘은 약하고, 뒤쪽은 짧아진 조합이에요',
+   body:'허벅지 뒤가 짧으면 숙일 때 허리가 대신 굽고, 허리·골반을 붙잡는 힘이 약하면 그 부담을 막아주지 못해요. 늘리기와 버티는 힘을 같이 채워야 해요.'},
+  {tags:['tenniselbow','golferelbow'],min:2,
+   title:'팔꿈치 양쪽 힘줄이 함께 부담받고 있어요',
+   body:'손목을 펴는 힘줄과 굽히는 힘줄이 양쪽에서 같이 자극받는 상태예요. 특정 동작 하나보다 손을 쓰는 총량을 줄이는 게 먼저예요.'},
+  {tags:['calf_tight','fascia'],min:2,
+   title:'종아리가 굳으면서 발바닥까지 이어지는 흐름이에요',
+   body:'종아리가 짧아지면 발목이 충분히 굽혀지지 않아, 걸을 때 발바닥 근막이 대신 늘어나며 부담을 받기 쉬워요. 종아리를 함께 풀어주면 발바닥 부담도 줄어들어요.'},
 ];
-function findCombo(tags){
-  return COMBOS.find(c=>c.tags.filter(t=>tags.includes(t)).length>=c.min);
+function findCombos(tags){
+  /* 부위를 넘는 연결(cross)을 먼저, 그다음 부위 안 연결. 태그가 겹치지 않게 최대 2장. */
+  const picked=[],used=new Set();
+  const take=list=>list.forEach(c=>{
+    if(picked.length>=2)return;
+    if(c.must && !c.must.every(t=>tags.includes(t)))return;   /* 반드시 있어야 하는 태그 */
+    const hit=c.tags.filter(t=>tags.includes(t));
+    if(hit.length<c.min)return;
+    if(hit.some(t=>used.has(t)))return;
+    hit.forEach(t=>used.add(t));
+    picked.push(c);
+  });
+  take(COMBOS.filter(c=>c.cross));
+  take(COMBOS.filter(c=>!c.cross));
+  return picked;
+}
+
+/* 큰 제목 규칙
+   ① 부위를 넘는 연결이 있으면 그 문장  ② 두 부위를 골랐으면 두 곳을 함께 말하는 문장
+   ③ 한 부위면 그 부위의 연결 문장      ④ 연결이 없으면 개수 */
+function josa(w){                      /* 받침이 있으면 '과', 없으면 '와' */
+  const last=w.charCodeAt(w.length-1);
+  if(last<0xAC00||last>0xD7A3) return w+'와';
+  return w + ((last-0xAC00)%28 ? '과' : '와');
+}
+function resultHeadline(pats,combos){
+  const cross=combos.find(c=>c.cross);
+  if(cross) return cross.title;
+  const labels=selectedParts.map(partLabel).filter(Boolean);
+  if(labels.length>=2) return `${josa(labels[0])} ${labels[1]}, 두 곳이 함께 보여요`;
+  if(combos.length) return combos[0].title;
+  return `${pats.length}가지 패턴이 보여요`;
 }
 
 /* ================= 스트레칭 =================
@@ -499,23 +705,25 @@ const ROUTINE={
   neck_nerve:{t:'목 신경 이완',sub:'목·팔 신경가동성',d:'앉아서 고개를 반대쪽으로 살짝 기울인 채, 저린 쪽 팔을 옆으로 뻗어 손목을 천천히 폈다 굽히기. 통증 없는 범위에서 10회'},
   forwardhead:[
     {t:'목 앞쪽 정렬',sub:'목뒤 깊은 근육',d:'벽에 등을 대고 턱만 살짝 뒤로 당겨 뒤통수를 벽에 붙이기. 5초 유지 × 10회'},
-    {t:'목뒤·어깨 위 이완',sub:'상부승모근',d:'한 손으로 반대쪽 머리를 잡고 귀를 어깨 쪽으로 지그시 당기기. 30초 × 좌우'}
+    {t:'목뒤·어깨 위 이완',sub:'위쪽 등세모근',d:'한 손으로 반대쪽 머리를 잡고 귀를 어깨 쪽으로 지그시 당기기. 30초 × 좌우'}
   ],
   straightneck:{t:'목 · 상부 등 펴기',sub:'목 신전 · 상부 등',d:'양손으로 목을 받치고 목 커브를 만들고, 목과 등을 천천히 뒤로 펴기. 5초 유지 × 10회',video:'videos/straightneck.mp4'},
-  dnf_weak:{t:'목 앞쪽 깊은 근육 깨우기',sub:'깊은 목굽힘근',d:'1단계 · 베개 없이 누워 머리는 바닥에 둔 채, "네"라고 끄덕이듯 턱만 살짝 당겨 10초 유지 × 10회. 목 앞 굵은 근육에 힘이 들어가지 않을 만큼 가볍게 해주세요. 2단계 · 1단계가 편해지면 영상처럼 턱을 당긴 채 머리를 바닥에서 손가락 한 마디만 들어 5~10초 유지 × 5회. 턱이 들리거나 목 앞 근육이 튀어나오면 1단계로 돌아가세요.',video:''},
+  dnf_weak:{t:'목 앞쪽 깊은 근육 깨우기',sub:'목 깊은 굽힘근',d:'누워서 머리는 바닥에 둔 채 턱만 살짝 끄덕이기 10초 × 10회. 편해지면 머리를 손가락 한 마디만 들어 5~10초 × 5회',video:''},
   impingement:[
-    {t:'날개뼈 안정화',sub:'하부승모근·전거근',d:'벽에 손을 대고 팔꿈치를 편 채, 날개뼈를 등 뒤로 모았다 풀기. 10회'},
-    {t:'어깨 뒤쪽 이완',sub:'후방관절낭',d:'옆으로 누워 아래쪽 팔을 앞으로 뻗고, 반대 손으로 손목을 천천히 바닥 쪽으로 눌러주기. 30초'}
+    {t:'어깨뼈 안정화',sub:'하부승모근·전거근',d:'벽에 손을 대고 팔꿈치를 편 채, 어깨뼈를 등 뒤로 모았다 풀기. 10회'},
+    {t:'어깨 뒤쪽 이완',sub:'뒤쪽 관절주머니',d:'옆으로 누워 아래쪽 팔을 앞으로 뻗고, 반대 손으로 손목을 천천히 바닥 쪽으로 눌러주기. 30초'}
   ],
-  roundshoulder:{t:'가슴 앞쪽 열기',sub:'대흉근·소흉근',d:'문틀에 양 팔꿈치를 대고 몸통을 앞으로 살짝 밀어 가슴 앞이 늘어나게. 30초 × 2회'},
+  roundshoulder:{t:'가슴 앞쪽 열기',sub:'큰가슴근·작은가슴근',d:'문틀에 양 팔꿈치를 대고 몸통을 앞으로 살짝 밀어 가슴 앞이 늘어나게. 30초 × 2회'},
   shoulder_rot:{t:'어깨 안쪽 회전 가동성',sub:'어깨 후방',d:'한 손은 위로, 반대 손은 아래로 등 뒤에서 수건을 잡고 위아래로 부드럽게 당기기. 30초 × 좌우'},
+  scap_wing:{t:'푸시업 플러스 · 네발기기',sub:'어깨뼈 앞 근육',d:'허리는 편평하게, 배에 힘. 팔꿈치를 편 채 바닥을 밀어 등을 천장 쪽으로 3초 × 10회. 무릎이 불편하면 벽에 손을 짚고 똑같이',video:'videos/scap_wing.mp4'},
 
   /* 등·허리 */
   back_nerve:{t:'다리 신경 이완',sub:'허리·다리 신경가동성',d:'바로 누워 한쪽 무릎을 가슴 높이까지 구부리고, 무릎을 구부렸다 폈다 15~20회 × 좌우 (수건 이용 가능)'},
-  flexion:{t:'허리 펴기 가동성',sub:'요추 신전',d:'엎드린 채 팔로 상체만 부드럽게 세우기. 골반은 바닥에 두고 10초 × 10회'},
-  extension:{t:'허리 굽힘 이완',sub:'요추 굴곡',d:'누워서 양 무릎을 가슴으로 당겨 안기. 30초 유지'},
+  ham_tight:{t:'허벅지 뒤 늘리기',sub:'햄스트링',d:'누워서 한쪽 다리를 들고 허벅지 뒤를 손이나 수건으로 잡아 천천히 당기기. 무릎은 살짝 굽혀도 좋아요. 30초 × 좌우'},
+  flexion:{t:'허리 펴기 가동성',sub:'허리 펴기',d:'엎드린 채 팔로 상체만 부드럽게 세우기. 골반은 바닥에 두고 10초 × 10회'},
+  extension:{t:'허리 굽힘 이완',sub:'허리 굽히기',d:'누워서 양 무릎을 가슴으로 당겨 안기. 30초 유지'},
   sitstiff:{t:'허리 근막 이완',sub:'척추 가동성',d:'네발 자세로 등을 둥글게 말았다 펴기를 천천히 10회'},
-  ql:{t:'옆구리 이완',sub:'요방형근',d:'한 팔을 머리 위로 올려 반대쪽으로 몸을 기울이기. 30초 × 좌우'},
+  ql:{t:'옆구리 이완',sub:'허리네모근',d:'한 팔을 머리 위로 올려 반대쪽으로 몸을 기울이기. 30초 × 좌우'},
   instab:[
     {t:'허리 깊은 근육 깨우기',sub:'배 속 깊은 근육',d:'누워서 무릎을 세우고, 배꼽을 척추 쪽으로 가볍게 당긴 채 10초 유지 × 10회'},
     {t:'몸통 안정화',sub:'코어',d:'네발 자세에서 한쪽 팔과 반대쪽 다리를 천천히 뻗어 5초 유지. 좌우 10회'}
@@ -524,55 +732,54 @@ const ROUTINE={
   /* 골반 (기존 유지) */
   pelvis_nerve:{t:'다리 신경 이완',sub:'허리·다리 신경가동성',d:'바로 누워 한쪽 무릎을 가슴 높이까지 구부리고, 무릎을 구부렸다 폈다 15~20회 × 좌우 (수건 이용 가능)'},
   faber_pos:[
-    {t:'엉덩이 옆 근육 강화',sub:'중둔근',d:'옆으로 누워 무릎을 포갠 뒤, 발은 붙인 채 위쪽 무릎만 천천히 열었다 닫기. 골반이 뒤로 넘어가지 않게 15~20회 × 좌우'},
-    {t:'고관절 바깥 돌리기',sub:'고관절 외회전',d:'앉아서 앞뒤 다리를 90도로 두고(인어공주 자세) 손으로 바닥을 짚은 뒤, 한쪽 다리를 바깥쪽으로 벌리기. 15~20번 × 좌우 (허리가 불편하면 옆으로 누워서 해도 됩니다)',video:'videos/faber_pos_2.mp4'},
+    {t:'엉덩이 옆 근육 강화',sub:'중간볼기근',d:'옆으로 누워 무릎을 포갠 뒤, 발은 붙인 채 위쪽 무릎만 천천히 열었다 닫기. 골반이 뒤로 넘어가지 않게 15~20회 × 좌우'},
+    {t:'고관절 바깥 돌리기',sub:'고관절 외회전',d:'앉아서 앞뒤 다리를 90도로(인어공주 자세), 손으로 바닥 짚고 한쪽 다리를 바깥으로 벌리기. 15~20회 × 좌우. 허리가 불편하면 옆으로 누워서',video:'videos/faber_pos_2.mp4'},
   ],
   ir_limit:[
-    {t:'고관절 안쪽 돌리기',sub:'고관절 내회전 가동성',d:'누워서 무릎을 세우고 발을 골반보다 넓게 벌린 뒤, 한쪽 무릎을 안쪽(반대쪽 발 방향)으로 천천히 넘겼다가 돌아오기. 사타구니 앞이 끼이지 않는 범위에서 10~15회 × 좌우',video:'videos/ir_limit_2.mp4'},
-    {t:'엉덩이 뒤쪽 이완',sub:'둔근·이상근',d:'누워서 한쪽 발목을 반대 무릎 위에 올리고, 아래 허벅지를 가슴 쪽으로 당기기. 머리와 어깨는 바닥에 편하게 두고, 사타구니 앞이 끼이면 당기는 범위를 줄여주세요. 30초 × 좌우',video:'videos/ir_limit.mp4'}
+    {t:'고관절 안쪽 돌리기',sub:'고관절 내회전 가동성',d:'누워서 무릎 세우고 발은 넓게. 한쪽 무릎만 안쪽으로 천천히 넘겼다 돌아오기. 사타구니가 끼이지 않는 범위로 10~15회 × 좌우',video:'videos/ir_limit_2.mp4'},
+    {t:'엉덩이 뒤쪽 이완',sub:'둔근·궁둥구멍근',d:'누워서 한쪽 발목을 반대 무릎에 올리고 아래 허벅지를 가슴 쪽으로. 머리는 바닥에, 사타구니가 끼이면 범위를 줄이기. 30초 × 좌우',video:'videos/ir_limit.mp4'}
   ],
-  iliopsoas_short:{t:'골반 앞쪽 근육 이완',sub:'장요근',d:'한 무릎 꿇고, 꼬리뼈를 살짝 말아넣은 채 골반을 앞으로 밀기. 허리를 젖히지 말고 골반 앞쪽이 늘어나게 30초 × 좌우'},
+  iliopsoas_short:{t:'골반 앞쪽 근육 이완',sub:'엉덩허리근',d:'한 무릎 꿇고, 꼬리뼈를 살짝 말아넣은 채 골반을 앞으로 밀기. 허리를 젖히지 말고 골반 앞쪽이 늘어나게 30초 × 좌우'},
   adductor_glute:[
-    {t:'안쪽 허벅지 이완',sub:'내전근',d:'앉아서 양 발바닥을 맞대고(나비 자세), 무릎을 아래로 내려 버티기. 30초',video:''},
+    {t:'안쪽 허벅지 이완',sub:'모음근',d:'앉아서 양 발바닥을 맞대고(나비 자세), 무릎을 아래로 내려 버티기. 30초',video:''},
     {t:'엉덩이 근육 강화',sub:'둔근',d:'누워서 무릎을 세우고, 엉덩이에 힘을 주어 골반을 천천히 들어올렸다 내리기. 15회'}
   ],
 
   /* 무릎 */
-  knee_check:{t:'무릎 주변 안정화',sub:'대퇴사두근',d:'앉아서 무릎을 편 채 허벅지 앞에 힘주고 5초 유지. 통증 없는 범위에서 10회'},
+  knee_check:{t:'무릎 주변 안정화',sub:'넙다리네갈래근',d:'앉아서 무릎을 편 채 허벅지 앞에 힘주고 5초 유지. 통증 없는 범위에서 10회'},
   pfp:[
-    {t:'허벅지 앞 이완 (엎드려서)',sub:'대퇴사두근',d:'엎드려 누운 자세에서 수건을 발목에 걸어 뒤꿈치를 엉덩이 쪽으로 당기기. 무릎이 옆으로 벌어지지 않게 정면 유지, 30초 × 좌우'},
-    {t:'엉덩이 옆 근육 강화',sub:'중둔근',d:'옆으로 누워 위쪽 다리를 곧게 펴고 천천히 들었다 내리기. 15회 × 좌우'}
+    {t:'허벅지 앞 이완 (엎드려서)',sub:'넙다리네갈래근',d:'엎드려 누운 자세에서 수건을 발목에 걸어 뒤꿈치를 엉덩이 쪽으로 당기기. 무릎이 옆으로 벌어지지 않게 정면 유지, 30초 × 좌우'},
+    {t:'엉덩이 옆 근육 강화',sub:'중간볼기근',d:'옆으로 누워 위쪽 다리를 곧게 펴고 천천히 들었다 내리기. 15회 × 좌우'}
   ],
-  pfp2:{t:'허벅지 앞 이완',sub:'대퇴사두근',d:'선 채 한쪽 발목을 잡아 엉덩이 쪽으로 당기기. 30초 × 좌우'},
+  pfp2:{t:'허벅지 앞 이완',sub:'넙다리네갈래근',d:'선 채 한쪽 발목을 잡아 엉덩이 쪽으로 당기기. 30초 × 좌우'},
   medial:[
-    {t:'안쪽 허벅지 이완',sub:'내전근',d:'앉아서 발바닥을 맞대고 무릎을 아래로 지그시 눌러주기. 30초'},
-    {t:'엉덩이 옆 근육 강화',sub:'중둔근',d:'옆으로 누워 위쪽 다리를 천천히 들었다 내리기. 15회 × 좌우'}
+    {t:'안쪽 허벅지 이완',sub:'모음근',d:'앉아서 발바닥을 맞대고 무릎을 아래로 지그시 눌러주기. 30초'},
+    {t:'엉덩이 옆 근육 강화',sub:'중간볼기근',d:'옆으로 누워 위쪽 다리를 천천히 들었다 내리기. 15회 × 좌우'}
   ],
   lateral:[
     {t:'허벅지 바깥 이완',sub:'허벅지 바깥',d:'선 채 한 다리를 뒤로 교차하고 골반을 옆으로 밀어 바깥이 늘어나게. 30초 × 좌우'},
-    {t:'엉덩이 옆 근육 강화',sub:'중둔근',d:'옆으로 누워 무릎을 포갠 뒤 위쪽 무릎만 열었다 닫기. 15~20회 × 좌우'}
+    {t:'엉덩이 옆 근육 강화',sub:'중간볼기근',d:'옆으로 누워 무릎을 포갠 뒤 위쪽 무릎만 열었다 닫기. 15~20회 × 좌우'}
   ],
   posterior:{t:'허벅지 뒤 이완',sub:'햄스트링',d:'앉아서 한 다리를 앞으로 뻗고 발끝을 몸쪽으로 당긴 채 상체를 천천히 숙이기. 30초 × 좌우'},
   catching:{t:'무릎 가동성',sub:'무릎 관절',d:'앉아서 무릎을 천천히 폈다 굽히기를 통증 없는 범위에서 부드럽게 10회'},
 
   /* 손목·팔꿈치 */
-  cts_strong:{t:'손목 신경 이완',sub:'정중신경 활주',d:'팔을 옆으로 뻗고 손바닥을 위로 향한 채, 손목과 손가락을 부드럽게 펴고 접기. 천천히 10회'},
+  cts_strong:{t:'손목 신경 이완',sub:'정중신경 미끄러뜨리기',d:'팔을 옆으로 뻗고 손바닥을 위로 향한 채, 손목과 손가락을 부드럽게 펴고 접기. 천천히 10회'},
   tenniselbow:[
-    {t:'팔뚝 바깥 이완',sub:'손목 신전근',d:'팔을 앞으로 펴고 손등을 아래로 당겨 팔뚝 바깥이 늘어나게. 30초 × 좌우'},
-    {t:'팔뚝 바깥 강화',sub:'손목 신전근',d:'손목을 편 상태로 가벼운 물통을 쥐고, 손등이 위로 오게 팔을 받친 뒤 손목을 천천히 들었다 내리기. 15회'}
+    {t:'팔뚝 바깥 이완',sub:'손목 폄근',d:'팔을 앞으로 펴고 손등을 아래로 당겨 팔뚝 바깥이 늘어나게. 30초 × 좌우'},
+    {t:'팔뚝 바깥 강화',sub:'손목 폄근',d:'손목을 편 상태로 가벼운 물통을 쥐고, 손등이 위로 오게 팔을 받친 뒤 손목을 천천히 들었다 내리기. 15회'}
   ],
   golferelbow:[
-    {t:'팔뚝 안쪽 이완',sub:'손목 굴곡근',d:'팔을 앞으로 펴고 손가락을 아래로 당겨 팔뚝 안쪽이 늘어나게. 30초 × 좌우'},
-    {t:'팔뚝 안쪽 강화',sub:'손목 굴곡근',d:'가벼운 물통을 쥐고 손바닥이 위로 오게 팔을 받친 뒤, 손목을 천천히 들었다 내리기. 15회'}
+    {t:'팔뚝 안쪽 이완',sub:'손목 굽힘근',d:'팔을 앞으로 펴고 손가락을 아래로 당겨 팔뚝 안쪽이 늘어나게. 30초 × 좌우'},
+    {t:'팔뚝 안쪽 강화',sub:'손목 굽힘근',d:'가벼운 물통을 쥐고 손바닥이 위로 오게 팔을 받친 뒤, 손목을 천천히 들었다 내리기. 15회'}
   ],
-  dequervain:{t:'엄지 힘줄 이완',sub:'엄지 신전근',d:'엄지를 손바닥 안에 감싸 쥐고, 손목을 새끼손가락 쪽으로 천천히 꺾기. 통증 없는 범위에서 15초 × 3회'},
-  overuse:{t:'팔뚝 이완',sub:'손목 근육',d:'팔을 앞으로 펴고 손가락을 아래로, 다시 위로 당겨 양방향으로 늘리기. 각 15초'},
+  dequervain:{t:'엄지 힘줄 이완',sub:'엄지 폄근',d:'엄지를 손바닥 안에 감싸 쥐고, 손목을 새끼손가락 쪽으로 천천히 꺾기. 통증 없는 범위에서 15초 × 3회'},
 
   /* 발목·발 */
   fascia:[
-    {t:'발바닥 근막 이완',sub:'족저근막',d:'앉아서 공이나 병으로 발바닥을 앞뒤로 굴리기. 1분'},
+    {t:'발바닥 근막 이완',sub:'발바닥근막',d:'앉아서 공이나 병으로 발바닥을 앞뒤로 굴리기. 1분'},
   ],
-  fascia2:{t:'발바닥 근막 이완',sub:'족저근막',d:'앉아서 엄지발가락을 위로 젖히고 발바닥을 손으로 지그시 눌러주기. 30초'},
+  fascia2:{t:'발바닥 근막 이완',sub:'발바닥근막',d:'앉아서 엄지발가락을 위로 젖히고 발바닥을 손으로 지그시 눌러주기. 30초'},
   instability:[
     {t:'발목 균형 감각 회복',sub:'균형 감각',d:'한 발로 서서 균형 잡기 30초. 익숙해지면 눈 감고 시도'},
     {t:'발목 바깥 근육 강화',sub:'발목 바깥 근육',d:'앉아서 발을 바깥쪽으로 천천히 밀었다 돌아오기. 15회'}
@@ -582,14 +789,45 @@ const ROUTINE={
 };
 
 /* ================= state ================= */
-let steps=[],cur=0,answers={},selectedParts=[];
+let steps=[],cur=0,answers={},selectedParts=[],selectedSafety=[],escalate=false;
+
+/* 시작 시: 후기 띠 + 공유 링크(?r=) + 저장된 지난 결과 */
+(function(){
+  const params=new URLSearchParams(location.search);
+  const r=params.get('r');
+  window.addEventListener('DOMContentLoaded', function(){
+    renderReviews();
+    if(r){
+      r.split(',').filter(Boolean).forEach((t,i)=>{ answers['shared_'+i+'_tag']=t; });
+      renderResult(); return;
+    }
+    const saved=loadSaved();
+    if(saved && saved.t && saved.t.length){
+      const btn=document.getElementById('resumeBtn');
+      if(btn) btn.style.display='block';
+    }
+  });
+})();
+const SIDE_Q={q:'이 부위는 어느 쪽이 더 불편한가요?',sub:'한쪽만 불편하면 그쪽을, 양쪽이 비슷하면 마지막을 골라주세요.',
+  opts:[{t:'왼쪽',tag:''},{t:'오른쪽',tag:''},{t:'양쪽 비슷하거나 한쪽을 모르겠어요',tag:''}]};
 function buildSteps(){
   steps=[{type:'multi',key:'parts'}];
-  selectedParts.forEach(pid=>{DIFF[pid].forEach((qq,qi)=>{steps.push({type:'single',key:pid+'_'+qi,part:pid,data:qq});});});
+  selectedParts.forEach(pid=>{
+    steps.push({type:'side',key:'side_'+pid,part:pid,data:SIDE_Q});
+    DIFF[pid].forEach((qq,qi)=>{steps.push({type:'single',key:pid+'_'+qi,part:pid,data:qq});});
+  });
+}
+const SIDE_LABEL=['왼쪽','오른쪽','양쪽'];
+function sideSummary(){
+  return selectedParts.map(pid=>{
+    const v=answers['side_'+pid];
+    if(v===undefined)return null;
+    return partLabel(pid)+' · '+SIDE_LABEL[v];
+  }).filter(Boolean).join('   ');
 }
 function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
 function startScan(){
-  answers={};selectedParts=[];steps=[{type:'multi',key:'parts'}];cur=0;
+  answers={};selectedParts=[];selectedSafety=[];escalate=false;steps=[{type:'multi',key:'parts'}];cur=0;
   document.getElementById('prog').style.display='block';
   document.getElementById('fbStrip').style.display='block';
   show('s-quiz');renderStep();
@@ -606,7 +844,7 @@ function renderStep(){
   if(st.type==='multi'){
     nb.style.display='block';nb.textContent='다음';nb.disabled=false;
     let h=`<div class="q-eyebrow">STEP 1</div><h2 class="q">요즘 가장 불편한 곳은 어디인가요?</h2>
-      <div class="q-sub">여러 개 골라도 괜찮아요.</div><div class="opts">`;
+      <div class="q-sub">가장 불편한 곳, 최대 2개까지 골라주세요.</div><div class="opts">`;
     PARTS.forEach(p=>{h+=`<button class="opt ${selectedParts.includes(p.id)?'sel':''}" onclick="togglePart('${p.id}')"><span>${p.label}</span><span class="chk"></span></button>`;});
     area.innerHTML=h+`</div>`;
   }else{
@@ -620,7 +858,7 @@ function renderStep(){
   }
 }
 function partLabel(pid){const p=PARTS.find(x=>x.id===pid);return p?p.label:'';}
-function togglePart(pid){const i=selectedParts.indexOf(pid);if(i>=0)selectedParts.splice(i,1);else selectedParts.push(pid);renderStep();}
+function togglePart(pid){const i=selectedParts.indexOf(pid);if(i>=0){selectedParts.splice(i,1);}else{if(selectedParts.length>=2)return;selectedParts.push(pid);}renderStep();}
 function pickSingle(oi,tag){const st=steps[cur];answers[st.key]=oi;answers[st.key+'_tag']=tag;renderStep();setTimeout(autoNext,180);}
 function autoNext(){if(cur+1<steps.length){cur++;renderStep();}else finish();}
 function nextStep(){const st=steps[cur];if(st.type==='multi'){buildSteps();if(steps.length===1){finish();return;}cur++;renderStep();}}
@@ -628,7 +866,44 @@ function prevStep(){
   if(cur===0){show('s-intro');document.getElementById('prog').style.display='none';document.getElementById('fbStrip').style.display='none';return;}
   cur--;renderStep();
 }
-function finish(){show('s-load');document.getElementById('prog').style.display='none';setTimeout(renderResult,1700);}
+function finish(){
+  document.getElementById('prog').style.display='none';
+  const tags=collectTags();
+  const hasCaution=tags.some(t=>PATTERN[t]&&PATTERN[t].level==='caution');
+  if(hasCaution){ renderSafety(); show('s-safety'); }
+  else{ escalate=false; show('s-load'); setTimeout(renderResult,1700); }
+}
+
+/* ================= 안전 확인 (2단계 주의 신호) =================
+   caution 단계 패턴이 하나라도 있으면 마지막에 한 번만 물어봄.
+   여기서 하나라도 선택하면 그 결과의 모든 caution 항목이 urgent로 올라감. */
+const SAFETY_OPTIONS=[
+  {id:'weak',label:'양쪽 팔이나 다리에 힘이 빠져요'},
+  {id:'bowel',label:'소변·대변 조절이나 사타구니 쪽 감각이 달라졌어요'},
+  {id:'injury',label:'넘어지거나 부딪힌 뒤 시작됐어요'},
+  {id:'night',label:'밤에 통증으로 깨고, 자세를 바꿔도 안 나아져요'},
+  {id:'none',label:'해당 없어요'},
+];
+function toggleSafety(id){
+  if(id==='none'){ selectedSafety=['none']; }
+  else{
+    selectedSafety=selectedSafety.filter(x=>x!=='none');
+    const i=selectedSafety.indexOf(id);
+    if(i>=0)selectedSafety.splice(i,1);else selectedSafety.push(id);
+  }
+  renderSafety();
+}
+function renderSafety(){
+  const area=document.getElementById('safetyArea');
+  let h=`<div class="q-eyebrow">마지막으로 확인할게요</div><h2 class="q">아래 중 해당하는 게 있나요?</h2>
+    <div class="q-sub">여러 개 골라도 괜찮아요.</div><div class="opts">`;
+  SAFETY_OPTIONS.forEach(o=>{h+=`<button class="opt ${selectedSafety.includes(o.id)?'sel':''}" onclick="toggleSafety('${o.id}')"><span>${o.label}</span><span class="chk"></span></button>`;});
+  area.innerHTML=h+`</div>`;
+}
+function goSafetyNext(){
+  escalate=selectedSafety.some(x=>x!=='none');
+  show('s-load'); setTimeout(renderResult,1200);
+}
 
 /* ================= 마커 분산 로직 =================
    동일/인접 좌표(최소 간격 MIN_DIST 미만) 발생 시 순차 오프셋 적용
@@ -653,26 +928,41 @@ function resolvePositions(list){
 /* ================= 결과 ================= */
 const AZ='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 function collectTags(){const t=[];Object.keys(answers).forEach(k=>{if(k.endsWith('_tag')&&answers[k])t.push(answers[k]);});return[...new Set(t)];}
+function levelRank(l){return l==='urgent'?2:l==='caution'?1:0;}
+function effLevel(p){
+  if(p.level==='urgent')return 'urgent';
+  if(p.level==='caution')return escalate?'urgent':'caution';
+  return null;
+}
 function renderResult(){
   const tags=collectTags();
   const seen=new Set();
   const pats=tags.map(t=>({tag:t,...PATTERN[t]}))
     .filter(p=>p.title && !seen.has(p.title) && seen.add(p.title))   /* 같은 제목 중복 제거 */
-    .sort((a,b)=>(b.flag?1:0)-(a.flag?1:0))                          /* 주의 신호를 맨 앞으로 */
+    .map(p=>({...p,lvl:effLevel(p)}))
+    .sort((a,b)=>levelRank(b.lvl)-levelRank(a.lvl))                 /* 진료 먼저 → 확인 권장 → 일반 순 */
     .map((p,i)=>({...p,ab:AZ[i]}));
-  const combo=findCombo(tags);
+  const combos=findCombos(tags);
   const el=document.getElementById('s-result');let h='';
   if(pats.length===0){
     h+=`<h2 class="r-head">지금은 뚜렷한 패턴이<br>보이지 않아요</h2><div class="r-sub">좋은 신호예요. 예방 차원의 스트레칭을 꾸준히 이어가면 좋습니다.</div>`;
   }else{
-    h+= combo
-      ? `<h2 class="r-head">${combo.title}</h2><div class="r-sub">세부적으로 ${pats.length}가지 패턴이 함께 보여요. 인체도의 표시와 아래 설명을 같은 기호로 맞춰두었어요.</div>`
-      : `<h2 class="r-head">${pats.length}가지 패턴이 보여요</h2><div class="r-sub">인체도의 표시와 아래 설명을 같은 기호로 맞춰두었어요.</div>`;
-    if(combo){
-      h+=`<div class="combo"><div class="combo-eb">한 흐름으로 보기</div>
-        <div class="combo-b">${combo.body}</div>
-        <div class="combo-f">자가 체크로는 어느 쪽이 먼저 시작됐는지 알 수 없어요. 원인과 풀어야 할 순서는 전문가 평가에서 실제 검사로 확인해요.</div></div>`;
+    const head=resultHeadline(pats,combos);
+    h+=`<h2 class="r-head">${head}</h2>
+      <div class="r-sub">모두 ${pats.length}가지 패턴이에요. 인체도의 기호와 아래 설명이 같은 순서로 이어집니다.</div>`;
+    const anyUrgent=pats.some(p=>p.lvl==='urgent');
+    const anyCaution=pats.some(p=>p.lvl==='caution');
+    if(anyUrgent){
+      h+=`<div class="banner banner-urgent">운동보다 진료가 먼저예요. 아래 표시된 항목은 병원에서 먼저 확인해보세요.</div>`;
+    }else if(anyCaution){
+      h+=`<div class="banner banner-caution">확인해보면 좋은 신호가 있어요. 자세와 움직임을 관리하며 좋아지는 경우가 많지만, 한 번은 전문가 확인을 받아보시길 권해요.</div>`;
     }
+    combos.forEach((c,ci)=>{
+      h+=`<div class="combo"><div class="combo-eb">결과 한눈에 보기${combos.length>1?` · ${ci+1}/${combos.length}`:''}</div>
+        ${c.title===head?'':`<div class="combo-t">${c.title}</div>`}
+        <div class="combo-b">${c.body}</div>
+        ${ci===combos.length-1?'<div class="combo-f">자가 체크로는 어느 쪽이 먼저 시작됐는지 알 수 없어요. 원인과 풀어야 할 순서는 전문가 평가에서 실제 검사로 확인해요.</div>':''}</div>`;
+    });
     const front=resolvePositions(pats.filter(p=>p.view==='front'));
     const back=resolvePositions(pats.filter(p=>p.view==='back'));
     h+=`<div class="bm-wrap"><div class="bm-tabs">
@@ -681,13 +971,20 @@ function renderResult(){
       <div class="bm-stage" id="bmFront">${figureFront()}${labels(front)}${front.length?'':'<div class="bm-empty">전면에 표시된 항목이 없어요</div>'}</div>
       <div class="bm-stage" id="bmBack" style="display:none;">${figureBack()}${labels(back)}${back.length?'':'<div class="bm-empty">후면에 표시된 항목이 없어요</div>'}</div></div>`;
     h+=`<div class="sec-t">상세 결과</div>`;
-    pats.forEach(p=>{h+=`<div class="dcard${p.flag?' dcard-flag':''}">
-      ${p.flag?'<div class="dflag">⚠ 주의 신호가 있어요 · 운동보다 상태 확인이 먼저예요</div>':''}
+    pats.forEach(p=>{
+      const cls=p.lvl==='urgent'?' dcard-urgent':p.lvl==='caution'?' dcard-caution':'';
+      const open=p.lvl==='urgent';   /* 진료 먼저 항목은 펼친 상태로 */
+      h+=`<div class="dcard${cls}${open?' open':''}">
       <div class="dtop"><div class="dbadge">${p.ab}</div>
       <div><div class="dpart">${p.part}</div><div class="dtitle">${p.title}</div></div></div>
-      <div class="dbody">${p.cause}</div><div class="dbody">${p.symp}</div><div class="dnote">${p.guide}</div>
-      ${p.test?`<div class="dtest"><span class="dtest-k">전문가 평가 연결</span><span class="dtest-v">${p.test.daily} → ${p.test.name}</span></div>`:''}</div>`;});
-    const rkeys=[...new Set(tags.filter(t=>ROUTINE[t]))];
+      ${p.short?`<div class="dshort">${p.short}</div>`:''}
+      <div class="dmore">
+        <div class="dbody">${p.cause}${p.symp?' '+p.symp:''}</div><div class="dnote">${p.guide}</div>
+        ${p.test?`<div class="dtest"><span class="dtest-k">전문가 평가 연결</span><span class="dtest-v">${p.test.daily} → ${p.test.name}</span></div>`:''}
+      </div>
+      <button class="dtoggle" onclick="toggleCard(this)">${open?'접기':'자세히 보기'}</button></div>`;});
+    const urgentTags=new Set(pats.filter(p=>p.lvl==='urgent').map(p=>p.tag));
+    const rkeys=[...new Set(tags.filter(t=>ROUTINE[t] && !urgentTags.has(t)))];
     if(rkeys.length){
       h+=`<div class="sec-t">오늘부터 할 스트레칭</div><div class="rout">`;
       const seenR=new Set();
@@ -705,27 +1002,51 @@ function renderResult(){
                  onended="this.parentElement.classList.remove('playing')"></video>
                <div class="play"></div></div>`;
           h+=`<div class="rcard">${thumb}
-            <div class="rbody"><div class="t">${r.t}${r.sub?` <span class="tsub">(${r.sub})</span>`:''}</div><div class="d">${r.d}</div>${PATTERN[k]&&PATTERN[k].flag?'<div class="rwarn">저림이 심해지거나 퍼지면 바로 멈추세요</div>':''}</div></div>`;
+            <div class="rbody"><div class="t">${r.t}${r.sub?` <span class="tsub">(${r.sub})</span>`:''}</div><div class="d">${r.d}</div></div></div>`;
         });
       });
       h+=`</div>`;
     }
   }
-  h+=`<div class="prof-sec">
+  h+=`<p class="free-end">여기까지가 무료예요. 위 동작은 검사에서 바로 이어지는 기본 동작이에요.</p>
+  <div class="prof-sec">
     <div class="prof-head"><span class="prof-tag">PROFESSOR</span><span class="prof-t">금선생 전문가 프로그램</span></div>
-    <div class="prof-grid">
-      <div class="prof-card" onclick="goDM()"><div class="prof-lock">🔒</div><div class="prof-nm">허리 통증 프로그램</div></div>
-      <div class="prof-card" onclick="goDM()"><div class="prof-lock">🔒</div><div class="prof-nm">목·어깨 통증 프로그램</div></div>
-      <div class="prof-card" onclick="goDM()"><div class="prof-lock">🔒</div><div class="prof-nm">몸 불균형 프로그램</div></div>
-      <div class="prof-card" onclick="goDM()"><div class="prof-lock">🔒</div><div class="prof-nm">무릎 통증 프로그램</div></div>
+    <div class="prof-one" onclick="goKakao()">
+      <div class="prof-one-t">2주 맞춤 플랜</div>
+      <div class="prof-one-d">위 동작을 <b>언제, 몇 번, 어떤 순서로</b> 할지 2주치로 짜드려요. 아침에 열어서 오늘 할 것만 보면 되게요.</div>
+      <ul class="prof-list">
+        <li>오늘 할 동작 <b>2개</b>씩, 14일치</li>
+        <li>1주차와 2주차에 <b>무엇이 달라지는지</b></li>
+        <li>내 패턴에서 <b>지금 피해야 할 동작</b></li>
+        <li>2주 뒤 <b>다시 체크해서 비교</b></li>
+      </ul>
+      <div class="prof-one-c">준비 중 · 가장 먼저 받아보기 →</div>
     </div>
-    <p class="prof-note">부위별 동작을 순서대로 엮은 금선생 직접 촬영 영상 프로그램이에요. 준비되면 안내드릴게요.</p>
   </div>
-  <div class="cta-wrap"><button class="btn-full" onclick="goDM()">금선생에게 물어보기</button>
-    <div class="cta-note">내 결과가 궁금하면 편하게 DM 주세요</div></div>
+  ${collectTags().includes('unsure')?`<div class="unsure-note">혼자 확인하기 애매한 항목이 있었어요. 그 부분은 직접 봐드릴 수 있으니 편하게 물어봐주세요.</div>`:''}
+  <div class="cta-wrap"><button class="btn-full" onclick="goKakao()">내 상황 물어보기 · 카카오톡</button>
+    <button class="btn-full btn-sub" onclick="goDM()">인스타그램 DM</button>
+    <div class="cta-note">"운동해도 그대로예요", "이 동작이 맞나요?"처럼<br>결과에 안 나온 질문에 답해드려요</div></div>
+    <button class="restart" onclick="shareResult()">결과 링크 복사</button>
     <button class="restart" onclick="startScan()">다시 스캔하기</button>
-    <div class="disc">자가 체크를 바탕으로 한 패턴 안내예요 · 의료 진단이 아닙니다</div>`;
+    <div class="disc">물리치료 표준 검사(하지직거상·팔렌·토마스 등)의 원리를 집에서 안전하게 해볼 수 있는 동작으로 바꾼 자가 체크예요<br>진단이나 치료를 대신하지 않아요 · 증상이 심하거나 계속되면 의료기관을 방문해 주세요</div>`;
   el.innerHTML=h;show('s-result');el.scrollTop=0;
+  if(pats.length) saveResult(pats.map(p=>p.tag));
+}
+function shareResult(){
+  const tags=collectTags().filter(t=>PATTERN[t]&&PATTERN[t].title);
+  if(!tags.length){alert('공유할 결과가 없어요.');return;}
+  const url=location.origin+location.pathname+'?r='+encodeURIComponent([...new Set(tags)].join(','));
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(()=>alert('결과 링크를 복사했어요. 붙여넣기로 공유해보세요.'));
+  }else{
+    prompt('아래 링크를 복사하세요', url);
+  }
+}
+function toggleCard(btn){
+  const card=btn.parentElement;
+  const open=card.classList.toggle('open');
+  btn.textContent=open?'접기':'자세히 보기';
 }
 function switchTab(v){
   document.getElementById('tabFront').classList.toggle('on',v==='front');
