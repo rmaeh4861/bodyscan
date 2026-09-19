@@ -1000,6 +1000,18 @@ function renderResult(){
                  onloadedmetadata="this.parentElement.classList.add('has-video')"
                  onerror="videoMissing(this)"
                  onended="this.parentElement.classList.remove('playing')"></video>
+<div class="video-controls" style="display:flex; justify-content:center; align-items:center; gap:16px; margin:14px 0;">
+  <button type="button" onclick="if(v=document.querySelector('video')) v.currentTime=Math.max(0,v.currentTime-3);" title="-3초" style="width:40px; height:40px; border-radius:50%; background:#f1f3f5; border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; padding:0;">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 19l-7-7 7-7"/><path d="M19 19l-7-7 7-7"/></svg>
+  </button>
+  <button type="button" id="btnPlayPause" onclick="if(v=document.querySelector('video')){if(v.paused){v.play();}else{v.pause();}}" title="재생/정지" style="width:48px; height:48px; border-radius:50%; background:#111111; color:#ffffff; border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; padding:0;">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+  </button>
+  <button type="button" onclick="if(v=document.querySelector('video')) v.currentTime=Math.min(v.duration||0,v.currentTime+3);" title="+3초" style="width:40px; height:40px; border-radius:50%; background:#f1f3f5; border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; padding:0;">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 5l7 7-7 7"/><path d="M5 5l7 7-7 7"/></svg>
+  </button>
+</div>
+
                <div class="play"></div></div>`;
           h+=`<div class="rcard">${thumb}
             <div class="rbody"><div class="t">${r.t}${r.sub?` <span class="tsub">(${r.sub})</span>`:''}</div><div class="d">${r.d}</div></div></div>`;
